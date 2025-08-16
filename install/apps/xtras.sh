@@ -7,7 +7,7 @@ if [ -z "$OMARCHY_BARE" ]; then
     xournalpp localsend-bin
 fi
 
-yay -S portproton yazi caffeine-ng antimicrox gparted firefox qbittorrent-enhanced
+yay -S portproton gamemode gamescope yazi caffeine-ng antimicrox gparted firefox qbittorrent-enhanced zfs-auto-snapshot github-desktop nvtop
 
   # Packages known to be flaky or having key signing issues are run one-by-one
   for pkg in pinta typora; do
