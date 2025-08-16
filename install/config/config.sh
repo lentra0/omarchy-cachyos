@@ -26,8 +26,8 @@ sudo gpgconf --launch dirmngr || true
 sudo sed -i 's|^\(auth\s\+required\s\+pam_faillock.so\)\s\+preauth.*$|\1 preauth silent deny=10 unlock_time=120|' "/etc/pam.d/system-auth"
 sudo sed -i 's|^\(auth\s\+\[default=die\]\s\+pam_faillock.so\)\s\+authfail.*$|\1 authfail deny=10 unlock_time=120|' "/etc/pam.d/system-auth"
 
-# Set Cloudflare as primary DNS (with Google as backup)
-sudo cp ~/.local/share/omarchy/default/systemd/resolved.conf /etc/systemd/
+# Set Cloudflare as primary DNS (with Google as backup) <useless>
+#sudo cp ~/.local/share/omarchy/default/systemd/resolved.conf /etc/systemd/
 
 # Solve common flakiness with SSH
 echo "net.ipv4.tcp_mtu_probing=1" | sudo tee -a /etc/sysctl.d/99-sysctl.conf
@@ -40,14 +40,14 @@ git config --global alias.st status
 git config --global pull.rebase true
 git config --global init.defaultBranch master
 
-# Set identification from install inputs
-if [[ -n "${OMARCHY_USER_NAME//[[:space:]]/}" ]]; then
-  git config --global user.name "$OMARCHY_USER_NAME"
-fi
+# Set identification from install inputs <useless>
+#if [[ -n "${OMARCHY_USER_NAME//[[:space:]]/}" ]]; then
+#  git config --global user.name "$OMARCHY_USER_NAME"
+#fi
 
-if [[ -n "${OMARCHY_USER_EMAIL//[[:space:]]/}" ]]; then
-  git config --global user.email "$OMARCHY_USER_EMAIL"
-fi
+#if [[ -n "${OMARCHY_USER_EMAIL//[[:space:]]/}" ]]; then
+#  git config --global user.email "$OMARCHY_USER_EMAIL"
+#fi
 
 # Set default XCompose that is triggered with CapsLock
 tee ~/.XCompose >/dev/null <<EOF
