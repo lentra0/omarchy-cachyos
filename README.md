@@ -4,6 +4,15 @@ Turn a fresh CachyOS installation into a fully-configured, beautiful, and modern
 
 *Since for some reason Omarchy dev doesn't like Arch-based distros, I decided to make slight modifications and my own adjustments to the installer - removed junk, adapted several steps for CachyOS and added some lines for my own setup.*
 
+**Installation**
+
+```
+get https://raw.githubusercontent.com/lentra0/omarchy-cachyos/refs/heads/master/boot.sh && \
+chmod +x boot.sh && 
+./boot.sh
+```
+
+
 Read more at [omarchy.org](https://omarchy.org).
 
 ## License
