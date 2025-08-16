@@ -7,7 +7,7 @@ Turn a fresh CachyOS installation into a fully-configured, beautiful, and modern
 **Installation**
 
 ```
-get https://raw.githubusercontent.com/lentra0/omarchy-cachyos/refs/heads/master/boot.sh && \
+sudo wget https://raw.githubusercontent.com/lentra0/omarchy-cachyos/refs/heads/master/boot.sh && \
 chmod +x boot.sh && 
 ./boot.sh
 ```
