@@ -1,0 +1,3 @@
+Server = https://cdn-1.cachyos.org/$arch/$repo
+Server = https://at.cachyos.org/repo/$arch/$repo
+Server = https://mirror.cachyos.org/repo/$arch/$repo
