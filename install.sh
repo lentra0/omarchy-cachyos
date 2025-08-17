@@ -5,6 +5,7 @@ set -e
 
 export PATH="$HOME/.local/share/omarchy/bin:$PATH"
 OMARCHY_INSTALL=~/.local/share/omarchy/install
+OMARCHY_BARE=true
 
 # Give people a chance to retry running the installation
 catch_errors() {
@@ -29,7 +30,7 @@ show_subtext() {
 
 # Install prerequisites
 source $OMARCHY_INSTALL/preflight/guard.sh
-source $OMARCHY_INSTALL/preflight/aur.sh
+#source $OMARCHY_INSTALL/preflight/aur.sh
 source $OMARCHY_INSTALL/preflight/presentation.sh
 source $OMARCHY_INSTALL/preflight/migrations.sh
 
@@ -44,7 +45,7 @@ source $OMARCHY_INSTALL/config/network.sh
 source $OMARCHY_INSTALL/config/power.sh
 source $OMARCHY_INSTALL/config/timezones.sh
 source $OMARCHY_INSTALL/config/login.sh
-source $OMARCHY_INSTALL/config/nvidia.sh
+#source $OMARCHY_INSTALL/config/nvidia.sh
 
 # Development
 show_logo decrypt 920
