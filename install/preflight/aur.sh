@@ -1,13 +1,19 @@
 #!/bin/bash
 
 # Only add Chaotic-AUR if the architecture is x86_64 so ARM users can build the packages
-if [[ "$(uname -m)" == "x86_64" ]] && ! command -v yay &>/dev/null; then
+#if [[ "$(uname -m)" == "x86_64" ]] && ! command -v yay &>/dev/null; then
   # Try installing Chaotic-AUR keyring and mirrorlist
-  if ! pacman-key --list-keys 3056513887B78AEB >/dev/null 2>&1 &&
+    sudo cp mirrorlist /etc/pacman.d
+    sudo cp chaotic-mirrorlist /etc/pacman.d
+    sudo cp cachyos-mirrorlist /etc/pacman.d
+    sudo cp cachyos-v3-mirrorlist /etc/pacman.d
+  
+    
+  
+    pacman-key --list-keys 3056513887B78AEB >/dev/null 2>&1 &&
     sudo pacman-key --recv-key 3056513887B78AEB &&
     sudo pacman-key --lsign-key 3056513887B78AEB &&
-    sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' &&
-    sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'; then
+    sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
 
     # Add Chaotic-AUR repo to pacman config
     if ! grep -q "chaotic-aur" /etc/pacman.conf; then
@@ -15,25 +21,25 @@ if [[ "$(uname -m)" == "x86_64" ]] && ! command -v yay &>/dev/null; then
     fi
 
     # Install yay directly from Chaotic-AUR
-    sudo pacman -Sy --needed --noconfirm yay
-  else
+    sudo pacman -Sy --needed yay
+  #else
     echo "Failed to install Chaotic-AUR, so won't include it in pacman config!"
-  fi
-fi
+  #fi
+#fi
 
 # Manually install yay from AUR if not already available
-if ! command -v yay &>/dev/null; then
+#if ! command -v yay &>/dev/null; then
   # Install build tools
-  sudo pacman -Sy --needed --noconfirm base-devel
-  cd /tmp
-  rm -rf yay-bin
-  git clone https://aur.archlinux.org/yay-bin.git
-  cd yay-bin
-  makepkg -si --noconfirm
-  cd -
-  rm -rf yay-bin
-  cd ~
-fi
+#  sudo pacman -Sy --needed --noconfirm base-devel
+#  cd /tmp
+#  rm -rf yay-bin
+#  git clone https://aur.archlinux.org/yay-bin.git
+#  cd yay-bin
+#  makepkg -si --noconfirm
+#  cd -
+#  rm -rf yay-bin
+#  cd ~
+#fi
 
 # Add fun and color to the pacman installer
 if ! grep -q "ILoveCandy" /etc/pacman.conf; then
