@@ -5,11 +5,6 @@ alias lt='eza --tree --level=2 --long --icons --git'
 alias lta='lt -a'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias cd="zd"
-
-alias cat="bat --theme=base16"
-alias ls='eza --icons=always --color=always -a'
-alias ll='eza --icons=always --color=always -la'
-
 zd() {
   if [ $# -eq 0 ]; then
     builtin cd ~ && return
@@ -38,12 +33,3 @@ n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
-
-# ZFS snapshot (/)
-alias zfs-snapshot-root='sudo zfs snapshot zpcachyos/ROOT/cos/root@manual_$(date +%Y%m%d_%H%M);zfs list -t snapshot'
-
-# ZFS snapshot (/home)
-alias zfs-snapshot-home='sudo zfs snapshot zpcachyos/ROOT/cos/home@manual_$(date +%Y%m%d_%H%M);zfs list -t snapshot'
-
-# Screen capture
-alias screen-capture='ffmpeg -f x11grab -framerate 60 -video_size 1920x1080 -i :0.0 -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p ~/Videos/output_$(date +%Y%m%d_%H%M).mkv'
