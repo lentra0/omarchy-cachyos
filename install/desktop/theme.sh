@@ -36,3 +36,7 @@ ln -snf ~/.config/omarchy/current/theme/btop.theme ~/.config/btop/themes/current
 
 mkdir -p ~/.config/mako
 ln -snf ~/.config/omarchy/current/theme/mako.ini ~/.config/mako/config
+
+# Purge plymouth
+yay -R --noconfirm cachyos-plymouth-bootanimation
+yay -R --noconfirm plymouth
