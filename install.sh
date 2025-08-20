@@ -36,7 +36,7 @@ source $OMARCHY_INSTALL/preflight/migrations.sh
 # Configuration
 show_logo beams 240
 show_subtext "Let's install Omarchy! [1/5]"
-source $OMARCHY_INSTALL/config/identification.sh
+#source $OMARCHY_INSTALL/config/identification.sh
 source $OMARCHY_INSTALL/config/config.sh
 source $OMARCHY_INSTALL/config/detect-keyboard-layout.sh
 source $OMARCHY_INSTALL/config/fix-fkeys.sh
