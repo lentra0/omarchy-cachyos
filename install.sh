@@ -44,7 +44,7 @@ source $OMARCHY_INSTALL/config/network.sh
 #source $OMARCHY_INSTALL/config/power.sh
 source $OMARCHY_INSTALL/config/timezones.sh
 source $OMARCHY_INSTALL/config/login.sh
-#source $OMARCHY_INSTALL/config/nvidia.sh
+source $OMARCHY_INSTALL/config/nvidia.sh
 
 # Development
 show_logo decrypt 920
