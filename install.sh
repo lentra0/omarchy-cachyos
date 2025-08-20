@@ -76,6 +76,15 @@ show_subtext "Updating system packages [5/5]"
 sudo updatedb
 yay -Syu --noconfirm --ignore uwsm
 
-# Reboot
+# Finish
 show_logo laseretch 920
+
+  if [ "$USE_LIMINE" = true ]; then
+      sudo limine-update
+  else
+      sudo mkinitcpio -P
+  fi
+
 show_subtext "You're done!"
+sleep 2
+reboot
