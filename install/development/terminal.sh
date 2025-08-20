@@ -1,7 +1,7 @@
 #!/bin/bash
 
 yay -S --noconfirm --needed \
-  wget curl unzip inetutils impala \
+  wget curl unzip inetutils impala bluetui \
   fd eza fzf ripgrep zoxide bat jq xmlstarlet \
   wl-clipboard fastfetch btop \
   man tldr less whois plocate bash-completion \
