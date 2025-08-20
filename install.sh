@@ -82,11 +82,12 @@ source $OMARCHY_INSTALL/extra/gh0stzk.sh
 # Finish
 show_logo laseretch 920
 
-  if [ "$USE_LIMINE" = true ]; then
-      sudo limine-update
-  else
-      sudo mkinitcpio -P
-  fi
+# Just to be sure nothing breaks
+if [ "$USE_LIMINE" = true ]; then
+    sudo limine-update
+else
+    sudo mkinitcpio -P
+fi
 
 show_subtext "You're done!"
 sleep 2
