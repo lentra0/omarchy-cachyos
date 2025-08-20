@@ -4,7 +4,8 @@
 cp -R ~/.local/share/omarchy/config/* ~/.config/
 
 # Use default bashrc from Omarchy
-cp ~/.local/share/omarchy/default/bashrc ~/.bashrc
+cp ~/.local/share/omarchy/default/bash/bashrc ~/.bashrc
+cp ~/.local/share/omarchy/default/bash/inputrc ~/.inputrc
 
 # Ensure application directory exists for update-desktop-database
 mkdir -p ~/.local/share/applications
@@ -26,3 +27,4 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global pull.rebase true
 git config --global init.defaultBranch master
+

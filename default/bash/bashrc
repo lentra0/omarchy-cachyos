@@ -1,3 +1,54 @@
+# History control
+shopt -s histappend
+HISTCONTROL=ignoreboth
+HISTSIZE=32768
+HISTFILESIZE="${HISTSIZE}"
+
+# Autocompletion
+if [[ ! -v BASH_COMPLETION_VERSINFO && -f /usr/share/bash-completion/bash_completion ]]; then
+  source /usr/share/bash-completion/bash_completion
+fi
+
+# Set complete path
+export PATH="./bin:$HOME/.local/bin:$PATH"
+set +h
+
+# File system
+alias ls='eza -lh --group-directories-first --icons=auto'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias cd="zd"
+zd() {
+  if [ $# -eq 0 ]; then
+    builtin cd ~ && return
+  elif [ -d "$1" ]; then
+    builtin cd "$1"
+  else
+    z "$@" && printf " \U000F17A9 " && pwd || echo "Error: Directory not found"
+  fi
+}
+open() {
+  xdg-open "$@" >/dev/null 2>&1 &
+}
+
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Tools
+alias g='git'
+alias d='docker'
+alias r='rails'
+n() { if [ "$#" -eq 0 ]; then nvim .; else nvim "$@"; fi; }
+
+# Git
+alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+alias gcad='git commit -a --amend'
+
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
@@ -50,3 +101,35 @@ transcode-video-4K() {
 transcode-png2jpg() {
   magick $1 -quality 95 -strip ${1%.*}.jpg
 }
+
+# Technicolor dreams
+force_color_prompt=yes
+color_prompt=yes
+
+# Simple prompt with path in the window/pane title and caret for typing line (optional)
+#PS1=$'\uf0a9 '
+#PS1="\[\e]0;\w\a\]$PS1"
+
+if command -v mise &> /dev/null; then
+  eval "$(mise activate bash)"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
+if command -v fzf &> /dev/null; then
+  if [[ -f /usr/share/fzf/completion.bash ]]; then
+    source /usr/share/fzf/completion.bash
+  fi
+  if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+    source /usr/share/fzf/key-bindings.bash
+  fi
+fi
+
+# Editor used by CLI
+export EDITOR="nvim"
+export SUDO_EDITOR="$EDITOR"
+export BAT_THEME=ansi
+
+[[ $- == *i* ]] && bind -f ~/.inputrc
