@@ -20,14 +20,6 @@ log_error() {
     printf "%s%sERROR:%s %s\n" "${CRE}" "${BLD}" "${CNC}" "${error_msg}" >&2
 }
 
-is_reflector() {
-    if ! command -v reflector >/dev/null 2>&1; then
-        printf "\t%b\n" "${BLD}${CBL}Installing reflector to get the best mirrors...${CNC}"
-        sudo pacman -Syy 2>&1 | tee -a "$ERROR_LOG" >/dev/null
-        sudo pacman -S reflector --noconfirm 2>&1 | tee -a "$ERROR_LOG" >/dev/null
-    fi
-}
-
 add_chaotic_repo() {
     repo_name="chaotic-aur"
     key_id="3056513887B78AEB"
@@ -81,11 +73,7 @@ add_chaotic_repo() {
     sleep 3
 }
 
-# Ensure reflector is installed and update mirrorlist
-is_reflector
-printf "%b\n\n" "${BLD}${CGR}Getting the 5 best and fastest mirrors${CNC}"
-sudo reflector --verbose --age 12 --fastest 10 --score 10 --protocol https --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-sudo pacman -Syy
+sudo pacman -Syy yay
 add_chaotic_repo
 
 # Add fun and color to the pacman installer
