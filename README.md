@@ -55,17 +55,31 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 
 ## Installation
 
+**Prerequisite:** Before installing these dotfiles, you must first install CachyOS using the following configuration in Calamares:
+
+1. Choose your locales, timezone, and keyboard layout
+
+2.  **Partitioning**
+    *   Select **"Erase disk"** option
+    *   Choose any filesystem you want
+    *   **Tick the 'Encrypt system' checkbox**
+
+3. Choose **"No Desktop"** option
+
+4.  **Additional Packages**
+    *   **Untick** 'cachyos shell configuration'
+    *   **Untick** 'firefox and language package'
+
+5. Set your credentials
+
+### Post-Installation
+After completing the CachyOS installation, reboot, decrypt your system when prompted, and proceed with Omarchy installation:
+
 ```bash
 git clone https://github.com/lentra0/omarchy-cachyos.git ~/.local/share/omarchy
 chmod +x ~/.local/share/omarchy/install.sh
 ~/.local/share/omarchy/install.sh
 ```
-
-## Customization
-
-- Modify installation options in `install.sh`
-- Edit `~/.config/hypr/` files for Hyprland customization
-- Adjust environment variables in configuration files as needed
 
 ## Contributing
 
