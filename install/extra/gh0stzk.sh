@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# Replace yay with paru
-sudo pacman -R --noconfirm yay
+# Install paru
 sudo pacman -S --noconfirm --needed paru
 
 # Install packages
 paru -S --noconfirm --needed firefox yazi fzf bat eza feh \
 zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
+
+sudo git clone https://GitHub.com/Aloxaf/fzf-tab /usr/share/zsh/plugins/fzf-tab-git
 
 # Copy zshrc
 cp ~/.local/share/omarchy/default/zsh/zshrc ~/.zshrc
