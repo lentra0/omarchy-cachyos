@@ -1,3 +1,0 @@
-Server = https://cdn-1.cachyos.org/$arch_v3/$repo
-Server = https://at.cachyos.org/repo/$arch_v3/$repo
-Server = https://mirror.cachyos.org/repo/$arch_v3/$repo
