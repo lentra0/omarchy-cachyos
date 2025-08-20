@@ -1,4 +1,4 @@
-echo "Adding gnome-keyring to make 1password work with 2FA codes"
+echo "Adding gnome-keyring because it's aight"
 
 if ! command -v gnome-keyring &>/dev/null; then
   yay -S --noconfirm --needed gnome-keyring
