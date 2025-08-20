@@ -80,6 +80,7 @@ sudo cachyos-rate-mirrors
 # Install yay and chaotic-aur repo
 sudo pacman -S yay
 add_chaotic_repo
+sudo pacman -Sy
 
 # Add fun and color to the pacman installer
 if ! grep -q "ILoveCandy" /etc/pacman.conf; then
