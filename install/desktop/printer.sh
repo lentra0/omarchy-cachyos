@@ -1,16 +1,28 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm cups cups-pdf cups-filters cups-browsed system-config-printer avahi nss-mdns
-sudo systemctl enable --now cups.service
+# Ask about CUPS printer support
+read -p "Do you want to enable CUPS printer support? [y/N]: " cups_response
+case "${cups_response,,}" in
+    y|yes)
+        echo "CUPS printer support will be enabled."
 
-# Disable multicast dns in resolved. Avahi will provide this for better network printer discovery
-sudo mkdir -p /etc/systemd/resolved.conf.d
-echo -e "[Resolve]\nMulticastDNS=no" | sudo tee /etc/systemd/resolved.conf.d/10-disable-multicast.conf
-sudo systemctl enable --now avahi-daemon.service
+        sudo pacman -S --noconfirm cups cups-pdf cups-filters cups-browsed system-config-printer avahi nss-mdns
+        sudo systemctl enable --now cups.service
 
-# Enable automatically adding remote printers
-if ! grep -q '^CreateRemotePrinters Yes' /etc/cups/cups-browsed.conf; then
-  echo 'CreateRemotePrinters Yes' | sudo tee -a /etc/cups/cups-browsed.conf
-fi
+        # Disable multicast dns in resolved. Avahi will provide this for better network printer discovery
+        #sudo mkdir -p /etc/systemd/resolved.conf.d
+        #echo -e "[Resolve]\nMulticastDNS=no" | sudo tee /etc/systemd/resolved.conf.d/10-disable-multicast.conf
+        #sudo systemctl enable --now avahi-daemon.service
 
-sudo systemctl enable --now cups-browsed.service
+        # Enable automatically adding remote printers
+        if ! grep -q '^CreateRemotePrinters Yes' /etc/cups/cups-browsed.conf; then
+          echo 'CreateRemotePrinters Yes' | sudo tee -a /etc/cups/cups-browsed.conf
+        fi
+
+        sudo systemctl enable --now cups-browsed.service
+
+        ;;
+    *)
+        echo "Skipping CUPS printer support."
+        ;;
+esac
