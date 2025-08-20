@@ -1,39 +1,83 @@
 #!/bin/bash
 
-# Only add Chaotic-AUR if the architecture is x86_64 so ARM users can build the packages
-if [[ "$(uname -m)" == "x86_64" ]] && ! command -v yay &>/dev/null; then
-  # Try installing Chaotic-AUR keyring and mirrorlist
-  if ! pacman-key --list-keys 3056513887B78AEB >/dev/null 2>&1 &&
-    sudo pacman-key --recv-key 3056513887B78AEB &&
-    sudo pacman-key --lsign-key 3056513887B78AEB &&
-    sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' &&
-    sudo pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'; then
+# Colors
+CRE=$(tput setaf 1)    # Red
+CYE=$(tput setaf 3)    # Yellow
+CGR=$(tput setaf 2)    # Green
+CBL=$(tput setaf 4)    # Blue
+BLD=$(tput bold)       # Bold
+CNC=$(tput sgr0)       # Reset colors
 
-    # Add Chaotic-AUR repo to pacman config
-    if ! grep -q "chaotic-aur" /etc/pacman.conf; then
-      echo -e '\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist' | sudo tee -a /etc/pacman.conf >/dev/null
+# Global vars
+ERROR_LOG="$HOME/omarchy-errors.log"
+
+is_reflector() {
+    if ! command -v reflector >/dev/null 2>&1; then
+        printf "\t%b\n" "${BLD}${CBL}Installing reflector to get the best mirrors...${CNC}"
+        sudo pacman -Syy 2>&1 | tee -a "$ERROR_LOG" >/dev/null
+        sudo pacman -S reflector --noconfirm 2>&1 | tee -a "$ERROR_LOG" >/dev/null
+    fi
+}
+
+add_chaotic_repo() {
+    logo "Add chaotic-aur repository"
+    repo_name="chaotic-aur"
+    key_id="3056513887B78AEB"
+    sleep 2
+
+    printf "%b\n" "${BLD}${CYE}Installing ${CBL}${repo_name}${CYE} repository...${CNC}"
+
+    if grep -q "\[${repo_name}\]" /etc/pacman.conf; then
+        printf "%b\n" "\n${BLD}${CYE}Repository already exists in pacman.conf${CNC}"
+        sleep 3
+        return 0
     fi
 
-    # Install yay directly from Chaotic-AUR
-    sudo pacman -Sy --needed --noconfirm yay
-  else
-    echo "Failed to install Chaotic-AUR, so won't include it in pacman config!"
-  fi
-fi
+    if ! pacman-key -l | grep -q "$key_id"; then
+        printf "%b\n" "${BLD}${CYE}Adding GPG key...${CNC}"
+        if ! sudo pacman-key --recv-key "$key_id" --keyserver keyserver.ubuntu.com 2>&1 | tee -a "$ERROR_LOG" >/dev/null; then
+            log_error "Failed to receive GPG key"
+            return 1
+        fi
 
-# Manually install yay from AUR if not already available
-if ! command -v yay &>/dev/null; then
-  # Install build tools
-  sudo pacman -Sy --needed --noconfirm base-devel
-  cd /tmp
-  rm -rf yay-bin
-  git clone https://aur.archlinux.org/yay-bin.git
-  cd yay-bin
-  makepkg -si --noconfirm
-  cd -
-  rm -rf yay-bin
-  cd ~
-fi
+        printf "%b\n" "${BLD}${CYE}Signing key locally...${CNC}"
+        if ! sudo pacman-key --lsign-key "$key_id" 2>&1 | tee -a "$ERROR_LOG" >/dev/null; then
+            log_error "Failed to sign GPG key"
+            return 1
+        fi
+    else
+        printf "\n%b\n" "${BLD}${CYE}GPG key already exists in keyring${CNC}"
+    fi
+
+    chaotic_pkgs="chaotic-keyring chaotic-mirrorlist"
+    for pkg in $chaotic_pkgs; do
+        if ! pacman -Qq "$pkg" >/dev/null 2>&1; then
+            printf "%b\n" "${BLD}${CYE}Installing ${CBL}${pkg}${CNC}"
+            if ! sudo pacman -U --noconfirm "https://cdn-mirror.chaotic.cx/chaotic-aur/${pkg}.pkg.tar.zst" 2>&1 | tee -a "$ERROR_LOG" >/dev/null; then
+                log_error "Failed to install ${pkg}"
+                return 1
+            fi
+        else
+            printf "%b\n" "${BLD}${CYE}${pkg} is already installed${CNC}"
+        fi
+    done
+
+    printf "\n%b\n" "${BLD}${CYE}Adding repository to pacman.conf...${CNC}"
+    if ! printf "\n[%s]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n" "$repo_name" \
+       | sudo tee -a /etc/pacman.conf >/dev/null 2>> "$ERROR_LOG"; then
+        log_error "Failed to add repository configuration"
+        return 1
+    fi
+
+    printf "%b\n" "\n${BLD}${CBL}${repo_name} ${CGR}Repository configured successfully!${CNC}"
+    sleep 3
+}
+
+# Ensure reflector is installed and update mirrorlist
+is_reflector
+printf "%b\n\n" "${BLD}${CGR}Getting the 5 best and fastest mirrors${CNC}"
+sudo reflector --verbose --age 12 --fastest 10 --score 10 --protocol https --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+sudo pacman -Syy
 
 # Add fun and color to the pacman installer
 if ! grep -q "ILoveCandy" /etc/pacman.conf; then
