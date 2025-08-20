@@ -51,7 +51,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 
 ### Development Environment
 - **Build Tools**: Added more common development and build tools to default installation
-- **Configuration Management**: Added gh0stzk's awesome dotfiles for zsh, Firefox, and yazi
+- **Extended customzations**: Added gh0stzk's awesome dotfiles for zsh, Firefox, and yazi
 
 ## Installation
 
