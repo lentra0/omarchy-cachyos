@@ -35,7 +35,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - **Screensaver Workaround**: Proper screensaver functionality out of the box
 - **Display Settings**: Updated default screen configuration to FullHD/QuadHD values
 - **NVIDIA Flexibility**: Commented out NVIDIA environment variables for optional use
-- **GP Configuration**: Updated GPG setup process
+- **GPG Configuration**: Updated GPG setup process
 
 ### Bloat Reduction & Optional Components
 - **Removed Unnecessary Packages**: 
@@ -43,11 +43,11 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
   - Removed Plymouth boot screen
   - Removed abysmal webapps and unnecessary packages like Zoom
   - Removed unnecessary .desktop entries
-  - Eliminated XCompose <CAPS> shortcut that inserted GitHub username/email
+  - Removed XCompose
 - **Optional Services**:
   - Made UFW firewall settings optional during installation
   - Made CUPS printer support optional
-  - Removed Docker from installation (most users don't need it) 
+  - Removed Docker from installation
 
 ### Development Environment
 - **Build Tools**: Added more common development and build tools to default installation
