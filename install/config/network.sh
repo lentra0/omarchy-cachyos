@@ -6,5 +6,8 @@ if ! command -v iwctl &>/dev/null; then
   sudo systemctl enable --now iwd.service
 fi
 
-# Remove networkmanager daemon
-sudo systemctl disable networkmanager.service
+# Prevent systemd-networkd-wait-online timeout on boot
+
+sudo systemctl disable systemd-networkd-wait-online.service
+
+sudo systemctl mask systemd-networkd-wait-online.service
