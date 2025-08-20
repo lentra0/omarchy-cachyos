@@ -78,7 +78,7 @@ sudo pacman -Sy --noconfirm --needed cachyos-rate-mirrors rate-mirrors
 sudo cachyos-rate-mirrors
 
 # Install yay and chaotic-aur repo
-sudo pacman -S yay
+sudo pacman -S --noconfirm --needed yay
 add_chaotic_repo
 sudo pacman -Sy
 
