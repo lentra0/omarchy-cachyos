@@ -73,7 +73,12 @@ add_chaotic_repo() {
     sleep 3
 }
 
-sudo pacman -Syy yay
+# Update mirrors
+sudo pacman -Sy --noconfirm --needed cachyos-rate-mirrors rate-mirrors
+sudo cachyos-rate-mirrors
+
+# Install yay and chaotic-aur repo
+sudo pacman -S yay
 add_chaotic_repo
 
 # Add fun and color to the pacman installer
