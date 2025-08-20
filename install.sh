@@ -76,6 +76,9 @@ show_subtext "Updating system packages [5/5]"
 sudo updatedb
 yay -Syu --noconfirm --ignore uwsm
 
+# Zsh, firefox, cli tweaks
+source $OMARCHY_INSTALL/extra/gh0stzk.sh
+
 # Finish
 show_logo laseretch 920
 

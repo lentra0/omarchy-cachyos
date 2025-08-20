@@ -11,6 +11,15 @@ CNC=$(tput sgr0)       # Reset colors
 # Global vars
 ERROR_LOG="$HOME/omarchy-errors.log"
 
+# Handle errors
+log_error() {
+    error_msg=$1
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
+    printf "%s" "[${timestamp}] ERROR: ${error_msg}\n" >> "$ERROR_LOG"
+    printf "%s%sERROR:%s %s\n" "${CRE}" "${BLD}" "${CNC}" "${error_msg}" >&2
+}
+
 is_reflector() {
     if ! command -v reflector >/dev/null 2>&1; then
         printf "\t%b\n" "${BLD}${CBL}Installing reflector to get the best mirrors...${CNC}"
@@ -20,7 +29,6 @@ is_reflector() {
 }
 
 add_chaotic_repo() {
-    logo "Add chaotic-aur repository"
     repo_name="chaotic-aur"
     key_id="3056513887B78AEB"
     sleep 2
@@ -78,6 +86,7 @@ is_reflector
 printf "%b\n\n" "${BLD}${CGR}Getting the 5 best and fastest mirrors${CNC}"
 sudo reflector --verbose --age 12 --fastest 10 --score 10 --protocol https --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Syy
+add_chaotic_repo
 
 # Add fun and color to the pacman installer
 if ! grep -q "ILoveCandy" /etc/pacman.conf; then

@@ -44,8 +44,9 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   read -p "Do you want to use ec_sys module? [y/N]: " ec_response
   case "${ec_response,,}" in
       y|yes)
-          echo "Adding ec_sys module..."
+          echo "Adding ec_sys module and write_support=1 option..."
           NVIDIA_MODULES="$NVIDIA_MODULES ec_sys"
+          echo "options ec_sys write_support=1" | sudo tee /etc/modprobe.d/ec_sys.conf >/dev/null
           ;;
       *)
           echo "Skipping ec_sys module."
@@ -86,10 +87,10 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   if [ -f "$HYPRLAND_CONF" ]; then
     cat >>"$HYPRLAND_CONF" <<'EOF'
 
-# NVIDIA environment variables
-env = NVD_BACKEND,direct
-env = LIBVA_DRIVER_NAME,nvidia
-env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+# NVIDIA environment variables (not great for hybrid so commented out)
+#env = NVD_BACKEND,direct
+#env = LIBVA_DRIVER_NAME,nvidia
+#env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 EOF
   fi
 fi
