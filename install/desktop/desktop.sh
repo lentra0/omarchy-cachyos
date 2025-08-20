@@ -2,7 +2,7 @@
 
 yay -S --noconfirm --needed \
   brightnessctl playerctl pamixer wiremix wireplumber \
-  fcitx5 fcitx5-gtk fcitx5-qt fcitx-configtool wl-clip-persist \
+  fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool wl-clip-persist \
   nautilus sushi ffmpegthumbnailer gvfs-mtp \
   slurp satty \
   mpv evince imv
