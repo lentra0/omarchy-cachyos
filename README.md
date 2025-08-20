@@ -80,7 +80,7 @@ This project incorporates excellent scripts and dotfiles from [gh0stzk's bspwm d
 
 ## Upstream
 
-This project is a fork of the original [Omarchy](https://github.com/basecamp/omarchy) project with heavy addition of  I acknowledge and appreciate the foundational work done by DHH and the upstream developers while creating a version better suited for CachyOS users.
+This project is a fork of the original [Omarchy](https://github.com/basecamp/omarchy) project. I acknowledge and appreciate the foundational work done by DHH and the upstream developers while creating a version better suited for CachyOS users.
 
 ## License
 
