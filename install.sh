@@ -54,7 +54,7 @@ source $OMARCHY_INSTALL/development/development.sh
 source $OMARCHY_INSTALL/development/nvim.sh
 #source $OMARCHY_INSTALL/development/ruby.sh
 #source $OMARCHY_INSTALL/development/docker.sh
-#source $OMARCHY_INSTALL/development/firewall.sh
+source $OMARCHY_INSTALL/development/firewall.sh
 
 # Desktop
 show_logo slice 60

@@ -1,26 +1,34 @@
 #!/bin/bash
 
-if ! command -v ufw &>/dev/null; then
-  yay -S --noconfirm --needed ufw ufw-docker
+# Ask about firewall
+read -p "Do you want to enable firewall? [y/N]: " firewall_response
+case "${firewall_response,,}" in
+    y|yes)
+        echo "Firewall will be enabled."
 
-  # Allow nothing in, everything out
-  sudo ufw default deny incoming
-  sudo ufw default allow outgoing
+        if ! command -v ufw &>/dev/null; then
+          yay -S --noconfirm --needed ufw ufw-docker
 
-  # Allow ports for LocalSend
-  sudo ufw allow 53317/udp
-  sudo ufw allow 53317/tcp
+          # Allow nothing in, everything out
+          sudo ufw default deny incoming
+          sudo ufw default allow outgoing
 
-  # Allow SSH in
-  sudo ufw allow 22/tcp
+          # Allow ports for LocalSend
+          sudo ufw allow 53317/udp
+          sudo ufw allow 53317/tcp
 
-  # Allow Docker containers to use DNS on host
-  sudo ufw allow in on docker0 to any port 53
+          # Allow SSH in
+          sudo ufw allow 22/tcp
 
-  # Turn on the firewall
-  sudo ufw enable
+          # Allow Docker containers to use DNS on host
+          sudo ufw allow in on docker0 to any port 53
 
-  # Turn on Docker protections
-  sudo ufw-docker install
-  sudo ufw reload
-fi
+          # Turn on the firewall
+          sudo ufw enable
+        fi
+
+        ;;
+    *)
+        echo "Skipping firewall setup."
+        ;;
+esac
