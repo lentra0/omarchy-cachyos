@@ -15,9 +15,9 @@
   "modules-right": [
     "tray",
     "bluetooth",
-    "cpu",
     "network",
     "pulseaudio",
+    "cpu",
     "battery"
   ],
   "hyprland/workspaces": {
