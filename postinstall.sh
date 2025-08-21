@@ -3,8 +3,7 @@
 echo "Do not run again if fails because I did not add any checks"
 sleep 5
 
-# Disable Network Manager
-sudo systemctl disable NetworkManager --now
+# Ensure iwd daemon is enabled
 sudo systemctl enable iwd
 
 # Bind CAPS to F13 (configure input keybind in fcitx5-configtool afterwards)

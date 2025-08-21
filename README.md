@@ -11,6 +11,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 ### Core Improvements
 - Sourced yay from CachyOS repositories instead of Chaotic-AUR
 - Improved Chaotic-AUR setup process
+- Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
 - Changed shell to zsh with useful plugins preconfigured
 - Set Firefox as default browser with custom theme and config
 - Replaced blueberry with bluetui for Bluetooth management
