@@ -8,7 +8,7 @@
   border-radius: 0;
   min-height: 0;
   font-family: CaskaydiaMono Nerd Font;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .modules-left {
@@ -31,11 +31,6 @@
 }
 
 #tray,
-#cpu,
-#battery,
-#network,
-#bluetooth,
-#pulseaudio,
 #clock,
 #custom-omarchy {
   min-width: 12px;
@@ -48,4 +43,52 @@
 
 tooltip {
   padding: 2px;
+}
+
+#battery {
+  margin-right: 4px;
+  font-size: 19px;
+  padding: 3px;
+  min-width: 18px;
+}
+
+#pulseaudio {
+  margin-right: 14px;
+  font-size: 20px;
+  padding: 0px;
+  min-width: 18px;
+}
+
+#pulseaudio.muted {
+  font-size: 27px;
+  padding: 2px;
+  min-width: 18px;
+  margin-left: 2px;
+}
+
+#network {
+  margin-right: 14px;
+  font-size: 19px;
+  padding: 1px;
+  min-width: 18px;
+}
+
+#cpu {
+  font-size: 22px;
+  min-width: 18px;
+  margin-right: 12px;
+}
+
+#bluetooth {
+  margin-right: 6px;
+  font-size: 20px;
+  min-width: 18px;
+  padding: 3px;
+}
+
+#custom-omarchy {
+  margin-right: 25px;
+  font-size: 18px;
+  padding: 0px;
+  min-width: 18px;
 }

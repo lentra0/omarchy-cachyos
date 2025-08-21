@@ -3,7 +3,7 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
-  "height": 26,
+  "height":38,
   "modules-left": [
     "custom/omarchy",
     "hyprland/workspaces"
@@ -13,11 +13,11 @@
     "custom/update"
   ],
   "modules-right": [
-    "group/tray-expander",
+    "tray",
     "bluetooth",
+    "cpu",
     "network",
     "pulseaudio",
-    "cpu",
     "battery"
   ],
   "hyprland/workspaces": {
@@ -82,9 +82,9 @@
   },
   "battery": {
     "format": "{capacity}% {icon}",
-    "format-discharging": "{icon}",
-    "format-charging":    "{icon}",
-    "format-plugged":     "",
+    "format-discharging": "{icon} {capacity}%",
+    "format-charging":    "{icon} {capacity}%",
+    "format-plugged":     " {capacity}%",
     "format-icons": {
       "charging": [
         "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"
@@ -107,7 +107,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "alacritty --class=Impala -e bluetui"
+    "on-click": "blueberry"
   },
   "pulseaudio": {
     "format": "{icon}",
@@ -120,23 +120,8 @@
       "default": ["", "", ""]
     }
   },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item"
-    },
-    "modules": [
-      "custom/expand-icon",
-    "tray"
-    ]
-  },
-  "custom/expand-icon": {
-    "format": " ",
-    "tooltip": false
-  },
   "tray": {
-    "icon-size": 12,
+    "icon-size": 19,
     "spacing": 12
   }
 }
