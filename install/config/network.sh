@@ -3,7 +3,7 @@
 # Install iwd explicitly
 if ! command -v iwctl &>/dev/null; then
   yay -S --noconfirm --needed iwd
-  sudo systemctl enable --now iwd.service
+  sudo systemctl enable iwd
 fi
 
 # Prevent systemd-networkd-wait-online timeout on boot
