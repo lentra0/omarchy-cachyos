@@ -32,7 +32,6 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Added ec_sys module for MSI laptop fan control
 - Added limine support for initramfs generation
 - Added libva-utils for VA-API management
-- Disabled NetworkManager in favor of iwd
 - Configured iwd to handle DHCP
 - Increased default terminal text size
 - Added customized yazi file manager
