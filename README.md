@@ -41,6 +41,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Restored screensaver functionality out of the box
 - Added common development and build tools
 - Decreased unlock timeout from 120 to 60 seconds
+- Added suda.vim neovim plugin
 - Integrated gh0stzk's dotfiles
 
 ### Prerequisite
