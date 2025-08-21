@@ -29,3 +29,6 @@ xdg-mime default mpv.desktop video/x-ms-asf
 xdg-mime default mpv.desktop video/x-ogm+ogg
 xdg-mime default mpv.desktop video/x-theora+ogg
 xdg-mime default mpv.desktop application/ogg
+
+# Ensure .desktop files with proper exec and mimetype fields are in use
+sudo cp ~/.local/share/omarchy/applications/*.desktop /usr/share/applications
