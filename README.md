@@ -73,7 +73,7 @@ chmod +x ~/.local/share/omarchy/install.sh
 ```
 
 ### Final Touches
-This repository includes an additional **`postinstall.sh`** script containing a curated set of personal recommended settings and final tweaks.
+This repository includes an additional **`postinstall.sh`** script containing a set of my personal tweaks.
 > **Inspect the contents** of this script before executing it to understand the changes it will make to your system.
 
 
