@@ -42,6 +42,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Added common development and build tools
 - Decreased unlock timeout from 120 to 60 seconds
 - Added suda.vim neovim plugin
+- Replaced fastfetch config with minimalistic one
 - Integrated gh0stzk's dotfiles
 
 ### Prerequisite
