@@ -38,6 +38,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Set default screen envs for 1080p and 1440p displays
 - Excluded setup of NVIDIA envs
 - Tweaked GPG setup process
+- Set workspaces amount to 8 and added cycling (SUPER + ←/→) 
 - Restored screensaver functionality out of the box
 - Added common development and build tools
 - Decreased unlock timeout from 120 to 60 seconds
