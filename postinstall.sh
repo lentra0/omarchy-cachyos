@@ -5,6 +5,7 @@ sleep 5
 
 # Disable Network Manager
 sudo systemctl disable NetworkManager --now
+sudo systemctl enable iwd
 
 # Bind CAPS to F13 (configure input keybind in fcitx5-configtool afterwards)
 paru -S --noconfirm xremap-hypr-bin
