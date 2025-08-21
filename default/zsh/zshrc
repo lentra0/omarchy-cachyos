@@ -131,7 +131,7 @@ bindkey "^[[F" end-of-line
 #alias update="paru -Syu --nocombinedupgrade"
 #alias grub-update="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
-alias yay='paru'
+#alias yay='paru'
 
 #alias music="ncmpcpp"
 
