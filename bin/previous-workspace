@@ -1,0 +1,11 @@
+#!/bin/bash
+
+MAX_WS=8
+CURRENT=$(hyprctl activeworkspace | grep "workspace ID" | awk '{print $3}')
+
+PREV=$((CURRENT - 1))
+if [ ${PREV} -lt 1 ]; then
+  PREV=${MAX_WS}
+fi
+
+hyprctl dispatch workspace ${PREV}
