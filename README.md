@@ -54,13 +54,13 @@ Before installing these dotfiles, you must first install CachyOS using the follo
 2.  **Partitioning**
     *   Select **"Erase disk"** option
     *   Choose any filesystem you want
-    *   **Tick the 'Encrypt system' checkbox**
+    *   **Tick** the **"Encrypt system"** checkbox
 
 3. Choose **"No Desktop"** option
 
 4.  **Additional Packages**
-    *   **Untick** 'cachyos shell configuration'
-    *   **Untick** 'firefox and language package'
+    *   **Untick** "cachyos shell configuration"
+    *   **Untick** "firefox and language package"
 
 5. Set your credentials
 
