@@ -152,3 +152,4 @@ alias ll='eza --icons=always --color=always -la'
 
 #disable-fzf-tab
 
+fastfetch
