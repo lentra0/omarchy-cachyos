@@ -1,40 +1,9 @@
 /****************************************************************************
- * Betterfox                                                                *
- * "Ad meliora"                                                             *
- * version: 135                                                            *
- * url: https://github.com/yokoffing/Betterfox                              *
-****************************************************************************/
-
-user_pref("browser.cache.disk.enable", false);
-user_pref("browser.cache.memory.enable", true);
-user_pref("browser.cache.memory.capacity", -1);
-
-/* set startup page
- * 0=blank, 1=home, 2=last visited page, 3=resume previous session*/
-user_pref("browser.startup.page", 3);
-/* set HOME+NEWWINDOW page
- * about:home=Firefox Home, custom URL, about:blank*/
-user_pref("browser.startup.homepage", "about:home");
-
-
-/****************************************************************************
  * SECTION: FASTFOX                                                         *
 ****************************************************************************/
 
 /** GENERAL ***/
 user_pref("content.notify.interval", 100000);
-
-/** GFX ***/
-user_pref("gfx.canvas.accelerated.cache-size", 512);
-user_pref("gfx.content.skia-font-cache-size", 20);
-
-/** MEDIA CACHE ***/
-user_pref("media.memory_cache_max_size", 65536);
-user_pref("media.cache_readahead_limit", 7200);
-user_pref("media.cache_resume_threshold", 3600);
-
-/** IMAGE CACHE ***/
-user_pref("image.mem.decode_bytes_at_a_time", 32768);
 
 /** NETWORK ***/
 user_pref("network.http.max-connections", 1800);
