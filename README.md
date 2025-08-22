@@ -34,6 +34,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Added libva-utils for VA-API management
 - Configured iwd to handle DHCP
 - Increased default terminal text size
+- Changed default prompt
 - Added customized yazi file manager
 - Set default screen envs for 1080p and 1440p displays
 - Excluded setup of NVIDIA envs
