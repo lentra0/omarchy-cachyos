@@ -2,9 +2,8 @@
 
 # Hyprland launched via UWSM and login directly as user, rely on disk encryption + hyprlock for security
 if ! command -v uwsm &>/dev/null; then
-  sudo pacman -U --noconfirm https://archive.archlinux.org/packages/u/uwsm/uwsm-0.23.0-1-any.pkg.tar.zst
+  yay -S --noconfirm uwsm
 fi
-
 
 # ==============================================================================
 # SEAMLESS LOGIN
@@ -97,7 +96,7 @@ if [ ! -f /etc/systemd/system/omarchy-seamless-login.service ]; then
 Description=Omarchy Seamless Auto-Login
 Documentation=https://github.com/basecamp/omarchy
 Conflicts=getty@tty1.service
-After=systemd-user-sessions.service getty@tty1.service plymouth-quit.service systemd-logind.service
+After=systemd-user-sessions.service getty@tty1.service systemd-logind.service
 PartOf=graphical.target
 
 [Service]
@@ -119,7 +118,6 @@ PAMName=login
 WantedBy=graphical.target
 EOF
 fi
-
 
 # Enable omarchy-seamless-login.service only if not already enabled
 if ! systemctl is-enabled omarchy-seamless-login.service | grep -q enabled; then
