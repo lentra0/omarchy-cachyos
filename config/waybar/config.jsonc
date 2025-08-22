@@ -125,6 +125,7 @@
   },
   "tray": {
     "icon-size": 19,
-    "spacing": 12
+    "spacing": 12,
+    "reverse-direction": true
   }
 }
