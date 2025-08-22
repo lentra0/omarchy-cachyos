@@ -29,7 +29,6 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 ### Other Tweaks
 - Removed some guard checks
 - Added Intel + NVIDIA hybrid graphics setup option
-- Added ec_sys module option
 - Added limine support for initramfs generation
 - Added libva-utils for VA-API management
 - Configured iwd to handle DHCP
