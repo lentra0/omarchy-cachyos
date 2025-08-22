@@ -20,11 +20,15 @@ echo 'KERNEL=="event*", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rule
 echo "exec-once = xremap ~/.config/xremap/config.yml" >>~/.config/hypr/autostart.conf
 
 # Install additional packages
-
 paru -S gnome-disk-utility ntfs-3g \
   github-desktop-bin celluloid \
   telegram-desktop-bin qbittorrent-enhanced \
   portproton gamemode gamescope
+
+# Make ZFS snapshots visible if used
+if command -v zfs >/dev/null 2>&1; then
+  sudo zfs set snapdir=visible zpcachyos
+fi
 
 echo "Done"
 sleep 5
