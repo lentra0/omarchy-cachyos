@@ -45,6 +45,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Added suda.vim neovim plugin
 - Replaced fastfetch config with minimalistic one
 - Fixed some icons issues
+- Added some extra windowrules
 - Integrated gh0stzk's dotfiles
 
 ### Prerequisite
