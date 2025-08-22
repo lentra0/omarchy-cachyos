@@ -31,4 +31,9 @@ xdg-mime default mpv.desktop video/x-theora+ogg
 xdg-mime default mpv.desktop application/ogg
 
 # Ensure .desktop files with proper exec and mimetype fields are in use
-sudo cp ~/.local/share/omarchy/applications/*.desktop /usr/share/applications
+cp ~/.local/share/omarchy/applications/*.desktop ~/.local/share/applications
+cp ~/.local/share/omarchy/applications/hidden/*.desktop ~/.local/share/applications
+
+# Fix missing icons in walker
+cp -r ~/.local/share/omarchy/applications/icons ~/.local/share/
+sudo rm $(locate pavucontrol.desktop)
