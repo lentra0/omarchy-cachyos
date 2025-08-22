@@ -1,6 +1,6 @@
 # Omarchy for CachyOS
 
-A streamlined fork of the DHH's Omarchy project, specifically optimized for CachyOS with crucial improvements, fixes, and personal preferences for a superior Hyprland experience.
+A streamlined fork of the DHH's Omarchy project, specifically adapted for CachyOS with crucial improvements, fixes, and personal preferences for a superior Hyprland experience.
 
 ## Overview
 
