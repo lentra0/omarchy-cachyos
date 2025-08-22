@@ -68,7 +68,7 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   case "${limine_response,,}" in
       y|yes)
           USE_LIMINE=true
-          echo "Will use 'sudo limine-update'"
+          echo "Will use 'sudo limine-mkinitcpio'"
           ;;
       *)
           USE_LIMINE=false
@@ -78,6 +78,7 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
 
   if [ "$USE_LIMINE" = true ]; then
       sudo limine-update
+      sudo limine-mkinitcpio
   else
       sudo mkinitcpio -P
   fi
