@@ -26,31 +26,31 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
 
   # Try to detect Intel graphics
   if lspci | grep -q "Intel.*UHD\|Intel.*HD Graphics"; then
-      read -p "Do you have an Intel UHD + NVIDIA hybrid system? [Y/n]: " response
-      case "${response,,}" in
-          n|no)
-              NVIDIA_MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
-              ;;
-          *)
-              NVIDIA_MODULES="i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm"
-              ;;
-      esac
-  else
-      echo "No Intel graphics detected, using NVIDIA-only configuration. If u have amd + nvidia do it yourself."
+    read -p "Do you have an Intel UHD + NVIDIA hybrid system? [Y/n]: " response
+    case "${response,,}" in
+    n | no)
       NVIDIA_MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+      ;;
+    *)
+      NVIDIA_MODULES="i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+      ;;
+    esac
+  else
+    echo "No Intel graphics detected, using NVIDIA-only configuration. If u have amd + nvidia do it yourself."
+    NVIDIA_MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
   fi
 
   # ec_sys module for MSI fan control
   read -p "Do you want to use ec_sys module? [y/N]: " ec_response
   case "${ec_response,,}" in
-      y|yes)
-          echo "Adding ec_sys module and write_support=1 option..."
-          NVIDIA_MODULES="$NVIDIA_MODULES ec_sys"
-          echo "options ec_sys write_support=1" | sudo tee /etc/modprobe.d/ec_sys.conf >/dev/null
-          ;;
-      *)
-          echo "Skipping ec_sys module."
-          ;;
+  y | yes)
+    echo "Adding ec_sys module and write_support=1 option..."
+    NVIDIA_MODULES="$NVIDIA_MODULES ec_sys"
+    echo "options ec_sys write_support=1" | sudo tee /etc/modprobe.d/ec_sys.conf >/dev/null
+    ;;
+  *)
+    echo "Skipping ec_sys module."
+    ;;
   esac
 
   echo "Modules set to: $NVIDIA_MODULES"
@@ -62,25 +62,37 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
   # Clean up potential double spaces
   sudo sed -i -E 's/  +/ /g' "$MKINITCPIO_CONF"
 
+  # Install some packages
+  PACKAGES_TO_INSTALL=(
+    "nvidia-utils"
+    "lib32-nvidia-utils"
+    "egl-wayland"
+    "libva-nvidia-driver" # For VA-API hardware acceleration
+    "libva-utils"
+    "qt5-wayland"
+    "qt6-wayland"
+  )
+
+  yay -S --needed --noconfirm "${PACKAGES_TO_INSTALL[@]}"
 
   # Ask about Limine
   read -p "Are you using the Limine bootloader? [y/N]: " limine_response
   case "${limine_response,,}" in
-      y|yes)
-          USE_LIMINE=true
-          echo "Will use 'sudo limine-mkinitcpio'"
-          ;;
-      *)
-          USE_LIMINE=false
-          echo "Using standard 'sudo mkinitcpio -P'"
-          ;;
+  y | yes)
+    USE_LIMINE=true
+    echo "Will use 'sudo limine-mkinitcpio'"
+    ;;
+  *)
+    USE_LIMINE=false
+    echo "Using standard 'sudo mkinitcpio -P'"
+    ;;
   esac
 
   if [ "$USE_LIMINE" = true ]; then
-      sudo limine-update
-      sudo limine-mkinitcpio
+    sudo limine-update
+    sudo limine-mkinitcpio
   else
-      sudo mkinitcpio -P
+    sudo mkinitcpio -P
   fi
 
   # Add NVIDIA environment variables to hyprland.conf

@@ -19,6 +19,13 @@ echo 'KERNEL=="event*", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rule
 # Add to autostart
 echo "exec-once = xremap ~/.config/xremap/config.yml" >>~/.config/hypr/autostart.conf
 
+# Install additional packages
+
+paru -S gnome-disk-utility ntfs-3g \
+  github-desktop-bin celluloid \
+  telegram-desktop-bin qbittorrent-enhanced \
+  portproton gamemode gamescope
+
 echo "Done"
 sleep 5
 reboot

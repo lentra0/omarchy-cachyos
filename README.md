@@ -29,7 +29,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 ### Other Tweaks
 - Removed some guard checks
 - Added Intel + NVIDIA hybrid graphics setup option
-- Added ec_sys module for MSI laptop fan control
+- Added ec_sys module option
 - Added limine support for initramfs generation
 - Added libva-utils for VA-API management
 - Configured iwd to handle DHCP
@@ -45,6 +45,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Decreased unlock timeout from 120 to 60 seconds
 - Added suda.vim neovim plugin
 - Replaced fastfetch config with minimalistic one
+- Fixed some icons issues
 - Integrated gh0stzk's dotfiles
 
 ### Prerequisite
@@ -88,7 +89,7 @@ This repository includes an additional **`postinstall.sh`** script containing a 
 While this is a personal fork, constructive issues and pull requests are welcome for:
 - CachyOS-specific enhancements
 - Hardware compatibility expansions
-- Sensible feature additions that align with the project's philosophy
+- Sensible feature additions
 
 ## Special Thanks
 
