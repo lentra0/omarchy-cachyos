@@ -98,6 +98,7 @@ show_logo laseretch 920
 # Just to be sure nothing breaks
 if [ "$USE_LIMINE" = true ]; then
     sudo limine-update
+    sudo limine-mkinitcpio
 else
     sudo mkinitcpio -P
 fi
