@@ -89,3 +89,10 @@ if [ "$try_firefox" = "y" ]; then
     printf "%s%sFirefox profile not found!%s\n" "$BLD" "$CRE" "$CNC"
   fi
 fi
+
+# Set GTK interface and icon theme to Yaru (sometimes fixes mismatches)
+
+paru -S --noconfirm --needed yaru-icon-theme yaru-gtk-theme
+
+gsettings set org.gnome.desktop.interface gtk-theme "Yaru-dark"
+gsettings set org.gnome.desktop.interface icon-theme "Yaru-red" # Use whatever color you want
