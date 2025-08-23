@@ -43,6 +43,23 @@ change_default_shell() {
 change_default_shell
 
 # Handle Firefox theme
+
+# Generic function to copy files
+copy_files() {
+  source="$1"
+  target="$2"
+  item_name=$(basename "$source")
+
+  if cp -R "$source" "$target" 2>>"$ERROR_LOG"; then
+    printf "%s%s %scopied successfully!%s\n" "$BLD" "$CYE$item_name" "$CGR" "$CNC"
+    return 0
+  else
+    log_error "Failed to copy: $item_name"
+    printf "%s%s %scopy failed!%s\n" "$BLD" "$CYE$item_name" "$CRE" "$CNC"
+    return 1
+  fi
+}
+
 while :; do
   printf "%b" "${BLD}${CYE}Do you want to use gh0stzk's Firefox theme? ${CNC}[y/N]: "
   read -r try_firefox
