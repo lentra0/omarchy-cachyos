@@ -36,4 +36,4 @@ cp ~/.local/share/omarchy/applications/hidden/*.desktop ~/.local/share/applicati
 
 # Fix missing icons in walker
 cp -r ~/.local/share/omarchy/applications/icons ~/.local/share/
-sudo rm $(locate pavucontrol.desktop)
+#sudo rm $(locate pavucontrol.desktop)
