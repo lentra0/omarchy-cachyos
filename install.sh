@@ -74,14 +74,14 @@ source $OMARCHY_INSTALL/apps/mimetypes.sh
 show_logo highlight
 show_subtext "Updating system packages [5/5]"
 sudo updatedb
-yay -Syu --noconfirm --ignore uwsm
+yay -Syu --noconfirm
 
 # Zsh, firefox, cli tweaks
 source $OMARCHY_INSTALL/extra/gh0stzk.sh
 
 # iwd dhcp support
 # Create iwd directory if it doesn't exist
-sudo mkdir -p /etc/iwd
+sudo mkdir /etc/iwd
 
 # Create or update main.conf with DHCP configuration
 sudo tee /etc/iwd/main.conf > /dev/null << EOF
@@ -89,7 +89,6 @@ sudo tee /etc/iwd/main.conf > /dev/null << EOF
 EnableNetworkConfiguration=true
 EOF
 
-echo "iwd configuration updated successfully"
 echo "DHCP functionality has been enabled in iwd"
 
 # Finish
