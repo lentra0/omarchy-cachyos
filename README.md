@@ -9,44 +9,45 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 ## Differences from Upstream
 
 ### Core Improvements
-- Sourced yay from CachyOS repositories instead of Chaotic-AUR
-- Improved Chaotic-AUR setup process
-- Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
 - Changed shell to zsh with useful plugins preconfigured
 - Set Firefox as default browser with custom theme and config
+- Overhauled waybar for convenience and efficiency
+- Consolidated all Hyprland configs to standard location (~/.config/hypr/)
+- Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
+- Configured iwd to handle DHCP
 - Replaced blueberry with bluetui for Bluetooth management
 - Modified default keybinds to my personal preference
-- Consolidated all Hyprland configs to standard location (~/.config/hypr/)
-- Overhauled waybar for convenience and efficiency
 - Removed all Apple-specific workarounds and tweaks
-- Removed those awful webapps
 - Removed unnecessary .desktop entries and XCompose
-- Removed Docker and related system modifications
+- Removed Docker and Docker-related system modifications
+- Removed those awful webapps
+- Made CUPS config optional
+- Made UFW config optional
 - Removed Plymouth boot screen
-- Made UFW config and CUPS printer support optional
 - Added postinstall script with personalized tweaks
 
 ### Other Tweaks
-- Removed some guard checks
 - Added Intel + NVIDIA hybrid graphics setup option
-- Added limine support for initramfs generation
-- Added libva-utils for VA-API management
-- Configured iwd to handle DHCP
-- Increased default terminal text size
-- Changed default prompt
-- Added customized yazi file manager
-- Changed default image viewer (imv -> feh)
-- Set default screen envs for 1080p and 1440p displays
 - Excluded setup of NVIDIA envs
+- Added limine support for initramfs generation
+- Removed some guard checks
 - Tweaked GPG setup process
-- Set workspaces amount to 8 and added cycling (SUPER + ←/→) 
+- Improved Chaotic-AUR setup process
+- Sourced yay from CachyOS repositories instead of Chaotic-AUR
+- Changed default prompt
+- Increased default terminal text size
+- Set default screen config for 1080p/1440p monitors
 - Restored screensaver functionality out of the box
-- Added common development and build tools
 - Decreased unlock timeout from 120 to 60 seconds
-- Added suda.vim neovim plugin
-- Replaced fastfetch config with minimalistic one
-- Fixed some icons issues
+- Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Added some extra windowrules
+- Fixed some icons-related issues
+- Replaced fastfetch config with minimalistic one
+- Added customized Yazi file manager
+- Added suda.vim neovim plugin
+- Changed default image viewer to feh
+- Added libva-utils for VA-API management
+- Added common development and build tools
 - Integrated gh0stzk's dotfiles
 
 ### Prerequisite
