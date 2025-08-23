@@ -12,6 +12,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Changed shell to zsh with useful plugins preconfigured
 - Set Firefox as default browser with custom theme and config
 - Overhauled waybar for convenience and efficiency
+- Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
 - Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
 - Configured iwd to handle DHCP
@@ -39,15 +40,14 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Set default screen config for 1080p/1440p monitors
 - Restored screensaver functionality out of the box
 - Decreased unlock timeout from 120 to 60 seconds
-- Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Added some extra windowrules
 - Fixed some icons-related issues
-- Replaced fastfetch config with minimalistic one
 - Added customized Yazi file manager
 - Added suda.vim neovim plugin
 - Changed default image viewer to feh
 - Added libva-utils for VA-API management
 - Added common development and build tools
+- Replaced fastfetch config with minimalistic one
 - Integrated gh0stzk's dotfiles
 
 ### Prerequisite
