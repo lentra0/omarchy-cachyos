@@ -95,4 +95,4 @@ fi
 paru -S --noconfirm --needed yaru-icon-theme yaru-gtk-theme
 
 gsettings set org.gnome.desktop.interface gtk-theme "Yaru-dark"
-gsettings set org.gnome.desktop.interface icon-theme "Yaru-blue" # Use whatever color you want
+gsettings set org.gnome.desktop.interface icon-theme "Yaru"
