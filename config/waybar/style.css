@@ -87,8 +87,21 @@ tooltip {
 }
 
 #custom-omarchy {
-  margin-right: 25px;
+  margin-right: 30px;
   font-size: 18px;
   padding: 0px;
   min-width: 18px;
+}
+
+#custom-cpu-usage,
+#custom-ram-usage, 
+#custom-cpu-temp {
+  font-size: 15px;
+  min-width: 18px;
+  margin: 0 8px;
+  padding: 0px;
+}
+
+#custom-cpu-usage {
+  margin-left: 32px;
 }

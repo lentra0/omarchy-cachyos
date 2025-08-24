@@ -6,11 +6,13 @@
   "height":38,
   "modules-left": [
     "custom/omarchy",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/cpu-usage",
+    "custom/ram-usage", 
+    "custom/cpu-temp",
   ],
   "modules-center": [
-    "clock",
-    "custom/update"
+    "clock"
   ],
   "modules-right": [
     "tray",
@@ -127,5 +129,23 @@
     "icon-size": 19,
     "spacing": 12,
     "reverse-direction": true
+  },
+  "custom/cpu-usage": {
+    "format": "󰍛 {}%",
+    "exec": "top -bn1 | grep 'Cpu(s)' | awk '{print $2}' | cut -d'%' -f1",
+    "interval": 2,
+    "tooltip": false
+  },
+  "custom/ram-usage": {
+    "format": "󰓅 {}",
+    "exec": "free -h | grep Mem | awk '{print $3}' | sed 's/Gi/GB/'",
+    "interval": 2,
+    "tooltip": false
+  },
+  "custom/cpu-temp": {
+    "format": " {}°C",
+    "exec": "cat /sys/class/thermal/thermal_zone0/temp | awk '{printf \"%.0f\", $1/1000}'",
+    "interval": 2,
+    "tooltip": false
   }
 }
