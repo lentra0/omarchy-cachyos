@@ -20,9 +20,9 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Modified default keybinds to my personal preference
 - Removed all Apple-specific workarounds and tweaks
 - Removed unnecessary .desktop entries and XCompose
-- Removed Docker and Docker-related system modifications
 - Removed those awful webapps
-- Made CUPS config optional
+- Made Docker setup optional
+- Made CUPS printer support optional
 - Made UFW config optional
 - Removed Plymouth boot screen
 - Added postinstall script with personalized tweaks

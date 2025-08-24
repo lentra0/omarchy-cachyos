@@ -1,22 +1,34 @@
 #!/bin/bash
 
-yay -S --noconfirm --needed docker docker-compose docker-buildx
+# Ask about Docker
+read -p "Do you want to install Docker? [y/N]: " docker_response
+case "${docker_response,,}" in
+y | yes)
+  echo "Docker will be installed."
 
-# Limit log size to avoid running out of disk
-sudo mkdir -p /etc/docker
-echo '{"log-driver":"json-file","log-opts":{"max-size":"10m","max-file":"5"}}' | sudo tee /etc/docker/daemon.json
+  yay -S --noconfirm --needed docker docker-compose docker-buildx
 
-# Start Docker automatically
-sudo systemctl enable docker
+  # Limit log size to avoid running out of disk
+  sudo mkdir -p /etc/docker
+  echo '{"log-driver":"json-file","log-opts":{"max-size":"10m","max-file":"5"}}' | sudo tee /etc/docker/daemon.json
 
-# Give this user privileged Docker access
-sudo usermod -aG docker ${USER}
+  # Start Docker automatically
+  sudo systemctl enable docker
 
-# Prevent Docker from preventing boot for network-online.target
-sudo mkdir -p /etc/systemd/system/docker.service.d
-sudo tee /etc/systemd/system/docker.service.d/no-block-boot.conf <<'EOF'
+  # Give this user privileged Docker access
+  sudo usermod -aG docker ${USER}
+
+  # Prevent Docker from preventing boot for network-online.target
+  sudo mkdir -p /etc/systemd/system/docker.service.d
+  sudo tee /etc/systemd/system/docker.service.d/no-block-boot.conf <<'EOF'
 [Unit]
 DefaultDependencies=no
 EOF
 
-sudo systemctl daemon-reload
+  sudo systemctl daemon-reload
+
+  ;;
+*)
+  echo "Skipping Docker installation."
+  ;;
+esac
