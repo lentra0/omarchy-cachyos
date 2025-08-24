@@ -9,7 +9,6 @@ fi
 # Prevent systemd-networkd-wait-online timeout on boot
 
 sudo systemctl disable systemd-networkd-wait-online.service
-
 sudo systemctl mask systemd-networkd-wait-online.service
 
 # Block network manager from impairing iwd
@@ -17,3 +16,7 @@ sudo tee /etc/NetworkManager/conf.d/10-ignore-wifi.conf >/dev/null <<EOF
 [keyfile]
 unmanaged-devices=interface-name:wlan0
 EOF
+
+# DHCP is handled by dhcpd
+yay -S --noconfirm dhcpd
+sudo systemctl enable dhcpd.service

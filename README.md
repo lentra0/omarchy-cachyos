@@ -15,7 +15,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
 - Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
-- Configured iwd to handle DHCP
+- Set dhcpd to handle DHCP
 - Replaced blueberry with bluetui for Bluetooth management
 - Modified default keybinds to my personal preference
 - Removed all Apple-specific workarounds and tweaks

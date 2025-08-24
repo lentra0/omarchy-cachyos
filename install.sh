@@ -76,23 +76,11 @@ show_subtext "Updating system packages [5/5]"
 sudo updatedb
 yay -Syu --noconfirm
 
-# iwd dhcp support
-# Create iwd directory if it doesn't exist
-sudo mkdir /etc/iwd
-
-# Create or update main.conf with DHCP configuration
-sudo tee /etc/iwd/main.conf >/dev/null <<EOF
-[General]
-EnableNetworkConfiguration=true
-EOF
-
-echo "DHCP functionality has been enabled in iwd"
-
 # Extra
 show_logo expand
 show_subtext "Installing extra configs [6/5]"
 source $OMARCHY_INSTALL/extra/gh0stzk.sh
-source $OMARCHY_INSTALL/extra/mechabar.sh
+#source $OMARCHY_INSTALL/extra/mechabar.sh # optional
 
 # Finish
 show_logo laseretch 920
