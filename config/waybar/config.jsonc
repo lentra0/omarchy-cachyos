@@ -6,21 +6,20 @@
   "height":38,
   "modules-left": [
     "custom/omarchy",
-    "hyprland/workspaces",
+    "battery",
     "custom/cpu-usage",
     "custom/ram-usage", 
-    "custom/cpu-temp",
+    "custom/cpu-temp"
   ],
   "modules-center": [
-    "clock"
+    "hyprland/workspaces"
   ],
   "modules-right": [
     "tray",
     "bluetooth",
     "network",
     "pulseaudio",
-    "cpu",
-    "battery"
+    "clock"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -67,7 +66,7 @@
     "on-click": "alacritty -e btop"
   },
   "clock": {
-    "format": "{:%A %H:%M}",
+    "format": "{:%H:%M}",
     "format-alt": "{:%d %B W%V %Y}",
     "tooltip": false,
     "on-click-right": "omarchy-cmd-tzupdate"
@@ -89,7 +88,7 @@
     "format": "{capacity}% {icon}",
     "format-discharging": "{icon} {capacity}%",
     "format-charging":    "{icon} {capacity}%",
-    "format-plugged":     " {capacity}%",
+    "format-plugged":     " {capacity}%",
     "format-icons": {
       "charging": [
         "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"
