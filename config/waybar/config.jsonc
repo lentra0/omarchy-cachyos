@@ -133,18 +133,21 @@
     "format": "󰍛 {}%",
     "exec": "top -bn1 | grep 'Cpu(s)' | awk '{print $2}' | cut -d'%' -f1",
     "interval": 2,
+    "on-click": "alacritty -e btop",
     "tooltip": false
   },
   "custom/ram-usage": {
     "format": "󰓅 {}",
     "exec": "free -h | grep Mem | awk '{print $3}' | sed 's/Gi/GB/'",
     "interval": 2,
+    "on-click": "alacritty -e btop",
     "tooltip": false
   },
   "custom/cpu-temp": {
     "format": " {}°C",
     "exec": "cat /sys/class/thermal/thermal_zone0/temp | awk '{printf \"%.0f\", $1/1000}'",
     "interval": 2,
+    "on-click": "alacritty -e btop",
     "tooltip": false
   }
 }
