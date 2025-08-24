@@ -17,6 +17,6 @@ sudo tee /etc/NetworkManager/conf.d/10-ignore-wifi.conf >/dev/null <<EOF
 unmanaged-devices=interface-name:wlan0
 EOF
 
-# DHCP is handled by dhcpd
-yay -S --noconfirm dhcpd
-sudo systemctl enable dhcpd.service
+# DHCP is handled by dhcpcd
+yay -S --noconfirm dhcpcd
+sudo systemctl enable dhcpcd.service

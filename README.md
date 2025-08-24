@@ -15,7 +15,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
 - Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
-- Set dhcpd to handle DHCP
+- DHCP is now handled by dhcpcd
 - Replaced blueberry with bluetui for Bluetooth management
 - Modified default keybinds to my personal preference
 - Removed all Apple-specific workarounds and tweaks
@@ -75,7 +75,7 @@ After completing the CachyOS installation, reboot, decrypt your system when prom
 
 ```bash
 git clone https://github.com/lentra0/omarchy-cachyos.git ~/.local/share/omarchy
-chmod +x ~/.local/share/omarchy/install.sh
+
 ~/.local/share/omarchy/install.sh
 ```
 
