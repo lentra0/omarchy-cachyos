@@ -5,6 +5,10 @@ if ! yay -Q kvantum-qt5 &>/dev/null; then
   yay -S --noconfirm kvantum-qt5
 fi
 
+# Set default QT theme to MateriaDark
+yay -S --noconfirm kvantum-theme-materia
+kvantummanager --set MateriaDark
+
 # Prefer dark mode everything
 if ! yay -Q gnome-themes-extra &>/dev/null; then
   yay -S --noconfirm gnome-themes-extra # Adds Adwaita-dark theme

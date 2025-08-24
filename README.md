@@ -41,6 +41,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Restored screensaver functionality out of the box
 - Decreased unlock timeout from 120 to 60 seconds
 - Added some extra windowrules
+- Set default QT theme to MateriaDark
 - Fixed some icons-related issues
 - Added customized Yazi file manager
 - Added suda.vim neovim plugin
