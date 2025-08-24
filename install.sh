@@ -76,30 +76,33 @@ show_subtext "Updating system packages [5/5]"
 sudo updatedb
 yay -Syu --noconfirm
 
-# Zsh, firefox, cli tweaks
-source $OMARCHY_INSTALL/extra/gh0stzk.sh
-
 # iwd dhcp support
 # Create iwd directory if it doesn't exist
 sudo mkdir /etc/iwd
 
 # Create or update main.conf with DHCP configuration
-sudo tee /etc/iwd/main.conf > /dev/null << EOF
+sudo tee /etc/iwd/main.conf >/dev/null <<EOF
 [General]
 EnableNetworkConfiguration=true
 EOF
 
 echo "DHCP functionality has been enabled in iwd"
 
+# Extra
+show_logo expand
+show_subtext "Installing extra configs [6/5]"
+source $OMARCHY_INSTALL/extra/gh0stzk.sh
+source $OMARCHY_INSTALL/extra/mechabar.sh
+
 # Finish
 show_logo laseretch 920
 
 # Just to be sure nothing breaks
 if [ "$USE_LIMINE" = true ]; then
-    sudo limine-update
-    sudo limine-mkinitcpio
+  sudo limine-update
+  sudo limine-mkinitcpio
 else
-    sudo mkinitcpio -P
+  sudo mkinitcpio -P
 fi
 
 show_subtext "You're done!"
