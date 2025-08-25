@@ -41,7 +41,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Removed some guard checks
 - Tweaked GPG setup process
 - Improved Chaotic-AUR setup process
-- Sourced `yay` from CachyOS repositories instead of Chaotic-AUR
+- Sourced `paru` from CachyOS repositories instead of `yay` from Chaotic-AUR
 - Changed default prompt
 - Increased default terminal text size
 - Set default screen config for 1080p/1440p monitors
