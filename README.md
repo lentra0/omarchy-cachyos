@@ -9,14 +9,14 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 ## Differences from Upstream
 
 ### Core Improvements
-- Changed shell to zsh with useful plugins preconfigured
-- Set Firefox as default browser with custom theme and config
+- Changed shell to `zsh` with useful plugins preconfigured
+- Set Firefox as default browser (`firefox-pure` package from CachyOS)
 - Overhauled waybar for convenience and efficiency
 - Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
-- Blacklisted Network Manager's wifi scan to avoid conflicts with iwd
-- DHCP is now handled by dhcpcd
-- Replaced blueberry with bluetui for Bluetooth management
+- Blacklisted Network Manager's wifi scan to avoid conflicts with `iwd`
+- DHCP is now handled by `dhcpcd`
+- Replaced blueberry with `bluetui` for Bluetooth management
 - Modified default keybinds to my personal preference
 - Removed all Apple-specific workarounds and tweaks
 - Removed unnecessary .desktop entries and XCompose
@@ -25,7 +25,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Made CUPS printer support optional
 - Made UFW config optional
 - Removed Plymouth boot screen
-- Added postinstall script with personalized tweaks
+- Added `postinstall` script with personalized tweaks
 
 ### Other Tweaks
 - Added Intel + NVIDIA hybrid graphics setup option
@@ -34,7 +34,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Removed some guard checks
 - Tweaked GPG setup process
 - Improved Chaotic-AUR setup process
-- Sourced yay from CachyOS repositories instead of Chaotic-AUR
+- Sourced `yay` from CachyOS repositories instead of Chaotic-AUR
 - Changed default prompt
 - Increased default terminal text size
 - Set default screen config for 1080p/1440p monitors
@@ -45,8 +45,8 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Fixed some icons-related issues
 - Added customized Yazi file manager
 - Added suda.vim neovim plugin
-- Changed default image viewer to feh
-- Added libva-utils for VA-API management
+- Changed default image viewer to `feh`
+- Added `libva-utils` for VA-API management
 - Added common development and build tools
 - Replaced fastfetch config with minimalistic one
 - Integrated gh0stzk's dotfiles

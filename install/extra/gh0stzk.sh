@@ -4,7 +4,7 @@
 sudo pacman -S --noconfirm --needed paru
 
 # Install packages
-paru -S --noconfirm --needed firefox yazi fzf bat eza feh \
+paru -S --noconfirm --needed firefox-pure yazi fzf bat eza feh \
   zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
 
 paru -S --noconfirm --needed zip 7zip tar gzip xz zstd bzip3 cpio arj xar
@@ -41,71 +41,6 @@ change_default_shell() {
 }
 
 change_default_shell
-
-# Handle Firefox theme
-
-# Generic function to copy files
-copy_files() {
-  source="$1"
-  target="$2"
-  item_name=$(basename "$source")
-
-  if cp -R "$source" "$target" 2>>"$ERROR_LOG"; then
-    printf "%s%s %scopied successfully!%s\n" "$BLD" "$CYE$item_name" "$CGR" "$CNC"
-    return 0
-  else
-    log_error "Failed to copy: $item_name"
-    printf "%s%s %scopy failed!%s\n" "$BLD" "$CYE$item_name" "$CRE" "$CNC"
-    return 1
-  fi
-}
-
-while :; do
-  printf "%b" "${BLD}${CYE}Do you want to use gh0stzk's Firefox theme? ${CNC}[y/N]: "
-  read -r try_firefox
-  case "$try_firefox" in
-  [Yy])
-    try_firefox="y"
-    break
-    ;;
-  [Nn])
-    try_firefox="n"
-    break
-    ;;
-  *) printf " %b%bError:%b write 'y' or 'n'\n" "${BLD}" "${CRE}" "${CNC}" ;;
-  esac
-done
-
-if [ "$try_firefox" = "y" ]; then
-  firefox_profile=$(find "$HOME/.mozilla/firefox" -maxdepth 1 -type d -name '*.default-release' 2>/dev/null | head -n1)
-
-  if [ -n "$firefox_profile" ]; then
-    mkdir -p "$firefox_profile/chrome" 2>>"$ERROR_LOG"
-
-    for item in "$HOME/.local/share/omarchy/default/firefox/"*; do
-      if [ -e "$item" ]; then
-        item_name=$(basename "$item")
-        target="$firefox_profile"
-
-        if [ "$item_name" = "chrome" ]; then
-          for chrome_item in "$item"/*; do
-            copy_files "$chrome_item" "$firefox_profile/chrome/"
-          done
-        else
-          copy_files "$item" "$target/"
-        fi
-      fi
-    done
-
-    # Update settings
-    user_js="$firefox_profile/user.js"
-    startup_cfg="$HOME/.local/share/startup-page/config.js"
-
-  else
-    log_error "Firefox profile not found"
-    printf "%s%sFirefox profile not found!%s\n" "$BLD" "$CRE" "$CNC"
-  fi
-fi
 
 # Set GTK interface and icon theme to Yaru (sometimes fixes mismatches)
 
