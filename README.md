@@ -1,6 +1,6 @@
 # Omarchy for CachyOS
 
-> I have decided to step away from the fork network of the original Omarchy project. This decision stems from the challenges of managing hundreds of upstream commits that often either duplicate efforts I have already implemented or introduce changes that do not align with this fork's vision. Moving forward, **omarchy-cachyos** will be maintained independently, with updates and features curated based on what I believe is most valuable for a streamlined, high-performance experience. This includes selectively merging only those upstream changes that are deemed essential.  
+> I have decided to step away from the fork network of the original Omarchy project. This decision stems from the challenges of managing hundreds of upstream commits that often either duplicate efforts I have already implemented or introduce changes that do not align with this fork's goals. Moving forward, **omarchy-cachyos** will be maintained independently, with updates and features curated based on what I believe is most valuable for a streamlined experience. This includes selectively merging only those upstream changes that are deemed essential.  
 
 ## Overview
 
