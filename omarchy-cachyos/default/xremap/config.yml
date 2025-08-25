@@ -1,4 +1,0 @@
-modmap:
-  - name: "caps to alt shift"
-    remap:
-      CapsLock: F13

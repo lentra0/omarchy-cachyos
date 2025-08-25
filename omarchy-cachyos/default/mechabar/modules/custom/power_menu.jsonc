@@ -1,7 +1,0 @@
-{
-	"custom/power_menu": {
-		"format": "󰤄",
-		"on-click": "alacritty ~/.config/waybar/scripts/power-menu.sh",
-		"tooltip": false
-	}
-}

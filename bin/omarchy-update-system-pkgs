@@ -1,23 +1,5 @@
 #!/bin/bash
 
 echo -e "\e[32m\nUpdate system packages\e[0m"
-sudo pacman -Syu --noconfirm
+yay -Syu --noconfirm --ignore uwsm
 echo
-
-if omarchy-pkg-aur-accessible; then
-  echo -e "\e[32m\nUpdate AUR packages\e[0m"
-  yay -Syu --noconfirm
-  echo
-else
-  echo -e "\e[31m\nAUR is unavailable (so skipping updates)\e[0m"
-  echo
-fi
-
-orphans=$(pacman -Qtdq)
-if [[ -n $orphans ]]; then
-  echo -e "\e[32m\nRemove orphan system packages\e[0m"
-  for pkg in $orphans; do
-    sudo pacman -Rs --noconfirm "$pkg" || true
-  done
-  echo
-fi
