@@ -7,8 +7,6 @@
 >  
 > Thank you for understanding, and I hope this fork continues to serve those who appreciate its focused approach.
 
-A streamlined fork of the DHH's Omarchy project, specifically adapted for CachyOS with crucial improvements, fixes, and personal preferences for a superior Hyprland experience.
-
 ## Overview
 
 This fork addresses several pain points encountered in the upstream Omarchy project on CachyOS while maintaining its elegant Hyprland workflow. Key improvements include better hardware support, reduced bloat, more sensible defaults for CachyOS users, and a suite of personal refinements for productivity and aesthetics.
