@@ -18,5 +18,5 @@ unmanaged-devices=interface-name:wlan0
 EOF
 
 # DHCP is handled by dhcpcd
-yay -S --noconfirm dhcpcd
+paru -S --noconfirm dhcpcd
 sudo systemctl enable dhcpcd.service
