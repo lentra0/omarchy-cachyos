@@ -1,5 +1,12 @@
 # Omarchy for CachyOS
 
+> **Note on Project Direction**  
+> I have decided to step away from the fork network of the original Omarchy project. This decision stems from the challenges of managing hundreds of upstream commits that often either duplicate efforts I have already implemented or introduce changes that do not align with this fork's vision. Moving forward, **omarchy-cachyos** will be maintained independently, with updates and features curated based on what I believe is most valuable for a streamlined, high-performance experience. This includes selectively merging only those upstream changes that are deemed essential.  
+>  
+> Additionally, this project is primarily intended as a **personal fork** tailored to my preferences and needs. It is geared towards users who are already proficient in Linux and rice customization. As such, I will not be addressing issues related to basic setup problems (e.g., "Waybar modules not displaying"). Users are expected to troubleshoot minor issues independently.  
+>  
+> Thank you for understanding, and I hope this fork continues to serve those who appreciate its focused approach.
+
 A streamlined fork of the DHH's Omarchy project, specifically adapted for CachyOS with crucial improvements, fixes, and personal preferences for a superior Hyprland experience.
 
 ## Overview
