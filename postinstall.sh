@@ -3,6 +3,10 @@
 echo "Do not run again if fails because I did not add any checks"
 sleep 5
 
+# Set default QT theme to MateriaDark
+yay -S --noconfirm kvantum-theme-materia
+kvantummanager --set MateriaDark
+
 # Ensure iwd daemon is enabled
 sudo systemctl enable iwd
 
