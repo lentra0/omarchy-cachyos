@@ -10,7 +10,7 @@ paru -S --noconfirm --needed \
 
 # Add screen recorder based on GPU
 if lspci | grep -qi 'nvidia'; then
-  yay -S --noconfirm --needed wf-recorder
+  paru -S --noconfirm --needed wf-recorder
 else
-  yay -S --noconfirm --needed wl-screenrec
+  paru -S --noconfirm --needed wl-screenrec
 fi
