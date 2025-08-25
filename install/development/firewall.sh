@@ -7,7 +7,7 @@ y | yes)
   echo "Firewall will be enabled."
 
   if ! command -v ufw &>/dev/null; then
-    yay -S --noconfirm --needed ufw ufw-docker
+    paru -S --noconfirm --needed ufw ufw-docker
 
     # Allow nothing in, everything out
     sudo ufw default deny incoming

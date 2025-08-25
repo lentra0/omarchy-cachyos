@@ -2,7 +2,7 @@
 
 # Install iwd explicitly
 if ! command -v iwctl &>/dev/null; then
-  yay -S --noconfirm --needed iwd
+  paru -S --noconfirm --needed iwd
   sudo systemctl enable iwd
 fi
 

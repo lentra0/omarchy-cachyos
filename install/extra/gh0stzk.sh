@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Install paru
-sudo pacman -S --noconfirm --needed paru
-
 # Install packages
 paru -S --noconfirm --needed firefox-pure yazi fzf bat eza feh \
   zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting

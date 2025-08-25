@@ -1,18 +1,18 @@
 #!/bin/bash
 
 # Use dark mode for QT apps too (like kdenlive)
-if ! yay -Q kvantum-qt5 &>/dev/null; then
-  yay -S --noconfirm kvantum-qt5
+if ! paru -Q kvantum-qt5 &>/dev/null; then
+  paru -S --noconfirm kvantum-qt5
 fi
 
 # Prefer dark mode everything
-if ! yay -Q gnome-themes-extra &>/dev/null; then
-  yay -S --noconfirm gnome-themes-extra # Adds Adwaita-dark theme
+if ! paru -Q gnome-themes-extra &>/dev/null; then
+  paru -S --noconfirm gnome-themes-extra # Adds Adwaita-dark theme
 fi
 
 # Allow icons to match the theme
-if ! yay -! yaru-icon-theme &>/dev/null; then
-  yay -S --noconfirm yaru-icon-theme
+if ! paru -! yaru-icon-theme &>/dev/null; then
+  paru -S --noconfirm yaru-icon-theme
 fi
 
 gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
@@ -39,9 +39,9 @@ ln -snf ~/.config/omarchy/current/theme/mako.ini ~/.config/mako/config
 
 # Purge plymouth
 if pacman -Q cachyos-plymouth-bootanimation >/dev/null 2>&1; then
-    sudo pacman -R --noconfirm cachyos-plymouth-bootanimation
+  sudo pacman -R --noconfirm cachyos-plymouth-bootanimation
 fi
 
 if pacman -Q plymouth >/dev/null 2>&1; then
-    sudo pacman -R --noconfirm plymouth
+  sudo pacman -R --noconfirm plymouth
 fi

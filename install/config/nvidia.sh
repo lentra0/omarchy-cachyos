@@ -60,7 +60,7 @@ if [ -n "$(lspci | grep -i 'nvidia')" ]; then
     "qt6-wayland"
   )
 
-  yay -S --needed --noconfirm "${PACKAGES_TO_INSTALL[@]}"
+  paru -S --needed --noconfirm "${PACKAGES_TO_INSTALL[@]}"
 
   # Ask about Limine
   read -p "Are you using the Limine bootloader? [y/N]: " limine_response
