@@ -74,7 +74,7 @@ source $OMARCHY_INSTALL/apps/mimetypes.sh
 show_logo highlight
 show_subtext "Updating system packages [5/5]"
 sudo updatedb
-yay -Syu --noconfirm
+paru -Syu --noconfirm
 
 # Extra
 show_logo expand
