@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+omarchy-update-git
+omarchy-migrate
+omarchy-update-system-pkgs
+omarchy-update-restart
+omarchy-restart-waybar # removes update-available icon
