@@ -7,12 +7,8 @@ sleep 5
 yay -S --noconfirm kvantum-theme-materia
 kvantummanager --set MateriaDark
 
-# Ensure iwd daemon is enabled
-sudo systemctl enable iwd
-
 # Bind CAPS to F13 (configure input keybind in fcitx5-configtool afterwards)
 paru -S --noconfirm xremap-hypr-bin
-
 cp -r ~/.local/share/omarchy/default/xremap ~/.config
 
 # To use without sudo
@@ -26,7 +22,7 @@ echo "exec-once = xremap ~/.config/xremap/config.yml" >>~/.config/hypr/autostart
 # Install additional packages
 paru -S gnome-disk-utility ntfs-3g celluloid \
   telegram-desktop-bin qbittorrent-enhanced \
-  portproton gamemode gamescope
+  portproton gamemode gamescope vkbasalt
 
 # Make ZFS snapshots visible if used
 if command -v zfs >/dev/null 2>&1; then
