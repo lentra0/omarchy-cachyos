@@ -14,9 +14,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Overhauled waybar for convenience and efficiency
 - Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
-- Blacklisted Network Manager's wifi scan to avoid conflicts with `iwd`
-- DHCP is now handled by `dhcpcd`
-- Replaced blueberry with `bluetui` for Bluetooth management
+- Added `nm-gui` as an applet to configure networks using NetworkManager
 - Modified default keybinds to my personal preference
 - Removed all Apple-specific workarounds and tweaks
 - Removed unnecessary .desktop entries and XCompose
