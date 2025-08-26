@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 SERVICE="mcontrolcenter.helper"
 INTERFACE="dmitry_s93.MControlCenter"
