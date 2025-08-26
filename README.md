@@ -14,7 +14,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Overhauled waybar for convenience and efficiency
 - Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
-- Added `nm-gui` as an applet to configure networks using NetworkManager
+- Added `nm-connection-editor` as a NetworkManager frontend similar to `blueberry`
 - Modified default keybinds to my personal preference
 - Removed all Apple-specific workarounds and tweaks
 - Removed unnecessary .desktop entries and XCompose
