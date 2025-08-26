@@ -16,6 +16,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
 - Replaced `impala` with plain old `nmtui` because it was unusable
 - Modified default keybinds to my personal preference
+- Added precise volume/brightness control (SHIFT + <key>)
 - Removed all Apple-specific workarounds and tweaks
 - Removed unnecessary .desktop entries and XCompose
 - Removed those awful webapps
