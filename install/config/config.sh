@@ -27,3 +27,7 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global pull.rebase true
 git config --global init.defaultBranch master
+
+# Add notes
+mkdir -p ~/Documents/Notes
+cp ~/.local/share/omarchy/default/notes.md ~/Documents/Notes
