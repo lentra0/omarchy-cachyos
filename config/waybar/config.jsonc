@@ -82,7 +82,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "nmgui"
+    "on-click": "nm-connection-editor"
   },
   "battery": {
     "format": "{capacity}% {icon}",
