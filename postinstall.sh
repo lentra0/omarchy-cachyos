@@ -1,7 +1,9 @@
 #!bin/bash
 
-echo "Do not run again if fails because I did not add any checks"
-sleep 5
+#Remove iwd
+if pacman -Q iwd >/dev/null 2>&1; then
+  sudo pacman -R --noconfirm iwd
+fi
 
 # Set default QT theme to MateriaDark
 yay -S --noconfirm kvantum-theme-materia
@@ -17,7 +19,9 @@ echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rule
 echo 'KERNEL=="event*", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-event.rules
 
 # Add to autostart
-echo "exec-once = xremap ~/.config/xremap/config.yml" >>~/.config/hypr/autostart.conf
+if ! grep -q "exec-once = xremap ~/.config/xremap/config.yml" ~/.config/hypr/autostart.conf; then
+  echo "exec-once = xremap ~/.config/xremap/config.yml" >>~/.config/hypr/autostart.conf
+fi
 
 # Install additional packages
 paru -S gnome-disk-utility ntfs-3g celluloid \
