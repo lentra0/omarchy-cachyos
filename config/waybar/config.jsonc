@@ -82,7 +82,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "alacritty --class=Impala -e impala"
+    "on-click": "nmgui"
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -111,7 +111,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "alacritty --class=Impala -e bluetui"
+    "on-click": "blueberry"
   },
   "pulseaudio": {
     "format": "{icon}",
