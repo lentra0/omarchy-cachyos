@@ -105,4 +105,4 @@ This project is a fork of the original [Omarchy](https://github.com/basecamp/oma
 
 ## License
 
-Omarchy-cachyos is released under the [MIT License](https://opensource.org/licenses/MIT).pensource.org/licenses/MIT).
+Omarchy-cachyos is released under the [MIT License](https://opensource.org/licenses/MIT).
