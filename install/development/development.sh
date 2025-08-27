@@ -2,4 +2,4 @@
 
 paru -S --noconfirm --needed \
   gcc cmake make ninja python python-pip nodejs npm clang llvm \
-  imagemagick jd go rust code github-cli lazygit
+  imagemagick jd go code github-cli lazygit

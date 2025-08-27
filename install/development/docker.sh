@@ -6,7 +6,7 @@ case "${docker_response,,}" in
 y | yes)
   echo "Docker will be installed."
 
-  paru -S --noconfirm --needed docker docker-compose docker-buildx
+  paru -S --noconfirm --needed docker docker-compose docker-buildx lazydocker
 
   # Limit log size to avoid running out of disk
   sudo mkdir -p /etc/docker

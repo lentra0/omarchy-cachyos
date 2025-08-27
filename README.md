@@ -47,6 +47,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Changed default image viewer to `feh`
 - Added `libva-utils` for VA-API management
 - Added common development and build tools
+- Added Rust setup script
 - Replaced fastfetch config with minimalistic one
 - Integrated gh0stzk's dotfiles
 
