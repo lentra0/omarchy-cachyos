@@ -1,10 +1,5 @@
 #!bin/bash
 
-#Remove iwd
-if pacman -Q iwd >/dev/null 2>&1; then
-  sudo pacman -R --noconfirm iwd
-fi
-
 # Set default QT theme to MateriaDark
 yay -S --noconfirm kvantum-theme-materia
 kvantummanager --set MateriaDark
