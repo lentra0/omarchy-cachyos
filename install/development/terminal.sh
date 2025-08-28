@@ -1,7 +1,7 @@
 #!/bin/bash
 
 paru -S --noconfirm --needed \
-  wget curl unzip inetutils impala bluetui \
+  wget curl unzip inetutils \
   fd eza fzf ripgrep zoxide bat jq xmlstarlet \
   wl-clipboard fastfetch btop \
   man tldr less whois plocate bash-completion \
