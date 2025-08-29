@@ -22,7 +22,7 @@ fi
 paru -S gnome-disk-utility ntfs-3g celluloid \
   telegram-desktop-bin qbittorrent-enhanced \
   portproton gamemode gamescope vkbasalt \
-  visual-studio-code-bin
+  visual-studio-code-bin hiddify-next-bin
 
 # Make ZFS snapshots visible if used
 if command -v zfs >/dev/null 2>&1; then
