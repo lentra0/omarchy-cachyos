@@ -45,3 +45,8 @@ paru -S --noconfirm --needed yaru-icon-theme yaru-gtk-theme
 
 gsettings set org.gnome.desktop.interface gtk-theme "Yaru-dark"
 gsettings set org.gnome.desktop.interface icon-theme "Yaru"
+
+# Remove iwd
+if ! command -v iwctl &>/dev/null; then
+  paru -R --noconfirm iwd
+fi

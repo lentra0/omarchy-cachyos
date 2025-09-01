@@ -12,7 +12,8 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Changed shell to `zsh` with useful plugins preconfigured
 - Set Firefox as default browser (`firefox-pure` package from CachyOS)
 - Replaced `blueberry` with `bluetui`
-- `iwd` now handles DHCP
+- Replaced `impala` with `nmtui`
+- `NetworkManager` now relies on `wpa_supplicant` instead of `iwd` and handles DHCP
 - Overhauled waybar for convenience and efficiency
 - Set workspaces amount to 8 and added cycling (SUPER + ←/→)
 - Consolidated all Hyprland configs to standard location (~/.config/hypr/)
