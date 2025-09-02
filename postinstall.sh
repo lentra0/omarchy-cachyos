@@ -1,7 +1,7 @@
-#!bin/bash
+#!/bin/bash
 
 # Set default QT theme to MateriaDark
-yay -S --noconfirm kvantum-theme-materia
+paru -S --noconfirm kvantum-theme-materia
 kvantummanager --set MateriaDark
 
 # Bind CAPS to F13 (configure input keybind in fcitx5-configtool afterwards)
