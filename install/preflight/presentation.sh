@@ -1,5 +1,4 @@
 #!/bin/bash
 
-if paru -Q python-terminaltexteffects-git >/dev/null 2>&1; then
-  paru -S --noconfirm --needed gum python-terminaltexteffects-git
-fi
+echo "Choose not -git version of tte"
+paru -S --needed gum python-terminaltexteffects
