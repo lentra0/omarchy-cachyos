@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install rustup
-paru -S --noconfirm --needed rustup
+paru -S --noconfirm --needed rust
 
 # Add toolchain
 rustup default stable
