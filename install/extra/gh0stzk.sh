@@ -4,7 +4,7 @@
 paru -S --noconfirm --needed firefox-pure yazi fzf bat eza feh \
   zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
 
-paru -S --noconfirm --needed zip 7zip tar gzip xz zstd bzip3 cpio arj xar
+paru -S --noconfirm --needed zip 7zip tar gzip xz zstd bzip3 cpio arj
 
 sudo git clone https://GitHub.com/Aloxaf/fzf-tab /usr/share/zsh/plugins/fzf-tab-git
 
