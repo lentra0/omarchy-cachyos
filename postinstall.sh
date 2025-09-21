@@ -9,6 +9,7 @@ paru -S --noconfirm xremap-hypr-bin
 cp -r ~/.local/share/omarchy/default/xremap ~/.config
 
 # To use without sudo
+sudo usermod -aG input $USER
 echo uinput | sudo tee /etc/modules-load.d/uinput.conf
 echo 'KERNEL=="uinput", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-input.rules
 echo 'KERNEL=="event*", GROUP="input", TAG+="uaccess"' | sudo tee /etc/udev/rules.d/99-event.rules
