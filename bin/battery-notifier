@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+LOW_THRESHOLD=10
+CRIT_THRESHOLD=5
+CHECK_INTERVAL=30
+NOTIFY_ID="battery_alert_$(id -u)"
+
+export DISPLAY="${DISPLAY:-:0}"
+export XAUTHORITY="${XAUTHORITY:-$HOME/.Xauthority}"
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=/run/user/$(id -u)/bus}"
+
+get_battery_info() {
+  local bat_path="/sys/class/power_supply"
+  local bat0="${bat_path}/BAT0"
+  local bat1="${bat_path}/BAT1"
+
+  if [ -d "${bat0}" ]; then
+    BAT_PATH="${bat0}"
+  elif [ -d "${bat1}" ]; then
+    BAT_PATH="${bat1}"
+  else
+    return 1
+  fi
+
+  BATTERY_LEVEL=$(cat "${BAT_PATH}/capacity" 2>/dev/null || echo "0")
+  BATTERY_STATUS=$(cat "${BAT_PATH}/status" 2>/dev/null || echo "Unknown")
+
+  return 0
+}
+
+send_notification() {
+  local urgency="$1"
+  local message="$2"
+
+  notify-send "Battery" "$message" 2>/dev/null || true
+}
+
+while true; do
+  if get_battery_info; then
+    if [ "$BATTERY_STATUS" = "Discharging" ]; then
+      if [ "$BATTERY_LEVEL" -le "$CRIT_THRESHOLD" ]; then
+        send_notification "critical" "⚡Battery critical: ${BATTERY_LEVEL}%"
+      elif [ "$BATTERY_LEVEL" -le "$LOW_THRESHOLD" ]; then
+        send_notification "normal" "⚡Battery low: ${BATTERY_LEVEL}%"
+      fi
+    fi
+  fi
+
+  sleep "$CHECK_INTERVAL"
+done
