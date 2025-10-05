@@ -36,6 +36,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 - Sourced `paru` from CachyOS repositories instead of `yay` from Chaotic-AUR
 - Changed default prompt
 - Increased default terminal text size
+- Added `changehz` script to easily change refresh rate
 - Set default screen config for 1080p/1440p monitors
 - Restored screensaver functionality out of the box
 - Decreased unlock timeout from 120 to 60 seconds

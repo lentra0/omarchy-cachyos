@@ -1,0 +1,99 @@
+#!/bin/bash
+
+CONFIG_FILE="$HOME/.config/hypr/monitors.conf"
+
+show_current_status() {
+  hyprctl monitors | grep -E "(Monitor |@|availableModes:)"
+}
+
+change_refresh_rate() {
+  local target_hz="$1"
+
+  # Get monitor name and current resolution
+  local monitor_info=$(hyprctl monitors | grep -A 10 "Monitor" | head -2)
+  local monitor_name=$(echo "$monitor_info" | grep "Monitor" | awk '{print $2}' | tr -d ':')
+  local current_res=$(hyprctl monitors | grep -oE '[0-9]+x[0-9]+' | head -1)
+
+  if [[ -z "$monitor_name" || -z "$current_res" ]]; then
+    echo "Error: Could not detect monitor information."
+    return 1
+  fi
+
+  # Validate requested refresh rate is available
+  local available_modes=$(hyprctl monitors | grep -A 20 "availableModes:" | grep -oE "[0-9]+x[0-9]+@[0-9.]+" | tr '\n' ' ')
+
+  if ! echo "$available_modes" | grep -q "${current_res}@${target_hz}"; then
+    echo "Error: Refresh rate ${target_hz}Hz is not available for resolution ${current_res}."
+    echo "Available modes: $available_modes"
+    return 1
+  fi
+
+  echo "Changing $monitor_name to ${current_res}@${target_hz}Hz..."
+
+  # Apply change immediately
+  hyprctl keyword monitor "$monitor_name,${current_res}@${target_hz},auto,1"
+
+  # Update config file intelligently
+  if [[ -f "$CONFIG_FILE" ]]; then
+    local temp_file=$(mktemp)
+    local found_monitor=0
+
+    while IFS= read -r line; do
+      if [[ "$line" =~ ^monitor.*$monitor_name.*$ ]] || [[ "$line" =~ ^monitor=.*,$ ]]; then
+        found_monitor=1
+        # Parse existing monitor line and replace only the resolution@refresh-rate part
+        if [[ "$line" =~ ^(monitor[= ]*)([^,]*),([^,]*),([^,]*),([^,]*)(.*)$ ]]; then
+          local prefix="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
+          local position="${BASH_REMATCH[4]}"
+          local scale="${BASH_REMATCH[5]}"
+          local extras="${BASH_REMATCH[6]}"
+
+          echo "${prefix},${current_res}@${target_hz},${position},${scale}${extras}" >>"$temp_file"
+          echo "Updated config line: ${prefix},${current_res}@${target_hz},${position},${scale}${extras}"
+        else
+          # Fallback: if parsing fails, use simpler replacement
+          echo "monitor=$monitor_name,${current_res}@${target_hz},auto,1" >>"$temp_file"
+        fi
+      else
+        echo "$line" >>"$temp_file"
+      fi
+    done <"$CONFIG_FILE"
+
+    # If no monitor rule was found, add one
+    if [[ $found_monitor -eq 0 ]]; then
+      echo "monitor=$monitor_name,${current_res}@${target_hz},auto,1" >>"$temp_file"
+    fi
+
+    mv "$temp_file" "$CONFIG_FILE"
+    echo "Config file updated successfully."
+  else
+    echo "Warning: Config file $CONFIG_FILE not found. Creating new one."
+    echo "monitor=$monitor_name,${current_res}@${target_hz},auto,1" >"$CONFIG_FILE"
+  fi
+
+  echo "Done! Refresh rate changed to ${target_hz}Hz."
+}
+
+# Main script logic
+if [[ $# -eq 0 ]]; then
+  show_current_status
+  echo -e "\nUsage: changehz <refresh_rate>\n"
+  echo "changehz 60     # Change to 60Hz"
+  echo "changehz 144    # Change to 144Hz"
+  exit 0
+fi
+
+# Input validation
+if [[ ! "$1" =~ ^[0-9]+(\.[0-9]+)?$ ]]; then
+  echo "Error: Refresh rate must be a number"
+  exit 1
+fi
+
+# Convert to integer if decimal
+target_hz="$1"
+if [[ "$target_hz" =~ \. ]]; then
+  target_hz=$(printf "%.0f" "$target_hz")
+  echo "Converted refresh rate to integer: ${target_hz}Hz"
+fi
+
+change_refresh_rate "$target_hz"
