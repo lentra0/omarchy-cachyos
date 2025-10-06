@@ -8,7 +8,7 @@ This fork addresses several pain points encountered in the upstream Omarchy proj
 
 ### Core Improvements
 - Changed shell to `zsh` with useful plugins preconfigured
-- Set Firefox as default browser (`firefox-pure` package from CachyOS)
+- Set Brave as default browser
 - Replaced `blueberry` with `bluetui`
 - Replaced `impala` with `nmtui`
 - `NetworkManager` now relies on `wpa_supplicant` instead of `iwd` and handles DHCP

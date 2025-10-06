@@ -4,6 +4,7 @@
 paru -S --noconfirm --needed vulkan-headers vulkan-icd-loader vulkan-validation-layers
 
 paru -S --noconfirm --needed \
+  brave-bin \
   brightnessctl playerctl pamixer wiremix wireplumber \
   fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool wl-clip-persist \
   nautilus sushi ffmpegthumbnailer gvfs-mtp \

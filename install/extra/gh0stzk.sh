@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install packages
-paru -S --noconfirm --needed firefox-pure yazi fzf bat eza feh \
+paru -S --noconfirm --needed yazi fzf bat eza feh \
   zsh zsh-autosuggestions zsh-history-substring-search zsh-syntax-highlighting
 
 paru -S --noconfirm --needed zip 7zip tar gzip xz zstd bzip3 cpio arj
