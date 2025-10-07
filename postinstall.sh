@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Set default QT theme to MateriaDark
-paru -S --noconfirm kvantum-theme-materia
+paru -S --noconfirm --needed kvantum-theme-materia
 kvantummanager --set MateriaDark
 
 # Bind CAPS to F13 (configure input keybind in fcitx5-configtool afterwards)
-paru -S --noconfirm xremap-hypr-bin
+paru -S --noconfirm --needed xremap-hypr-bin
 cp -r ~/.local/share/omarchy/default/xremap ~/.config
 
 # To use without sudo
@@ -20,10 +20,10 @@ if ! grep -q "exec-once = xremap ~/.config/xremap/config.yml" ~/.config/hypr/aut
 fi
 
 # Install additional packages
-paru -S gnome-disk-utility ntfs-3g celluloid \
+paru -S --needed gnome-disk-utility ntfs-3g celluloid \
   telegram-desktop-bin qbittorrent-enhanced \
   portproton gamemode gamescope vkbasalt \
-  visual-studio-code-bin hiddify-next-bin
+  visual-studio-code-bin hiddify-next-bin bitwarden
 
 # Make ZFS snapshots visible if used
 if command -v zfs >/dev/null 2>&1; then
