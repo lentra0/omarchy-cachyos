@@ -79,7 +79,7 @@ sudo cachyos-rate-mirrors
 
 # Install paru and chaotic-aur repo
 sudo pacman -S --noconfirm --needed paru
-# add_chaotic_repo
+add_chaotic_repo
 sudo pacman -Syyu
 
 # Add fun and color to the pacman installer
